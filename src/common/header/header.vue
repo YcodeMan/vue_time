@@ -2,33 +2,33 @@
   <div class="header">
     <ul class="table_v_c">
       <li class="td">
-        <a href="#!/">
+        <a>
           <i class="logo_mtime"></i>
         </a>
       </li>
       <li class="td curr">
-        <a href="#">
+        <a>
           <span>首页</span>
         </a>
       </li>
       <li class="td">
-        <a href="#">
+        <a>
           <span>购票</span>
         </a>
       </li>
       <li class="td">
-        <a href="#">
+        <a>
           <span>商城</span>
           <em class="new">NEW</em>
         </a>
       </li>
       <li class="td">
-        <a href="#">
+        <a>
           <span>发现</span>
         </a>
       </li>
       <li class="td">
-        <a href="#">
+        <a>
           <i class="ico_my"></i>
         </a>
       </li>

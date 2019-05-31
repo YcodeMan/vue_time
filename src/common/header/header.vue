@@ -48,11 +48,11 @@ export default {};
         a{
             color: #bbb;
             display: inline-block;
-            height: 4.4em;
-            line-height: 4.4em;
+            height: 1.056rem;
+            line-height: 1.056rem;
             position: relative;
             span {
-                font-size: 1.3rem;
+                font-size: 0.312rem;
             }   
         }
     }
@@ -68,8 +68,8 @@ export default {};
     flex: 1;
 }
 .logo_mtime {
-    width: 5.6em;
-    height: 1.8em;
+    width: 1.344rem;
+    height: 0.432rem;
     background: url(//static1.mtime.cn/html5/20190531112624/images/2014/logo_mtime.png) no-repeat;
     background-size: contain;
     display: inline-block;
@@ -82,7 +82,7 @@ export default {};
     ::after {
         content: '';
         display: block;
-        height: .2em;
+        height: .048em;
         background: #fff;
         width: 100%;
         overflow: hidden;
@@ -93,20 +93,20 @@ export default {};
 }
 .new {
     background: linear-gradient(top,#ef4545,#d80808);
-    width: 2.5rem;
-    height: 1.2rem;
-    border-radius: 1rem;
+    width: .6rem;
+    height: 0.288rem;
+    border-radius: .24rem;
     overflow: hidden;
     color: #fff;
-    font-size: .8rem;
-    line-height: 1.1rem;
+    font-size: .192rem;
+    line-height: 0.264rem;
     position: absolute;
-    top: .7rem;
-    left: 2.6rem;
+    top: .168rem;
+    left: .624rem;
 }
 .ico_my {
-    width: 1.4em;
-    height: 1.8em;
+    width: .336rem;
+    height: .432rem;
     display: inline-block;
     vertical-align: middle;
     background: url(//static1.mtime.cn/html5/20190531112624/images/2014/ico_my.png) no-repeat;

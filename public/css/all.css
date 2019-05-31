@@ -203,6 +203,8 @@ menu {
     -webkit-user-select: none
 }
 
+/* 使用部分 */
+
 .s_movie_tick dd .msprice strong.c_333 {
     color: #777
 }
@@ -281,7 +283,7 @@ menu {
 }
 
 .header {
-    height: 4.4em;
+    height: 1.056rem;
     position: relative;
     z-index: 2
 }
@@ -295,8 +297,8 @@ menu {
 }
 
 .logo_mtime {
-    width: 5.6em;
-    height: 1.8em;
+    width: 1.344rem;
+    height: .432rem;
     background: url(//static1.mtime.cn/html5/20190530163934/images/2014/logo_mtime.png) no-repeat;
     background-size: contain;
     display: inline-block;
@@ -321,49 +323,49 @@ menu {
 }
 
 .h_movietitle .m_tit h2 span {
-    font-size: 1.6em
+    font-size: .384rem
 }
 
 .h_movietitle .m_tit h3 span {
-    font-size: 1.2em;
+    font-size: .288rem;
     font-weight: normal
 }
 
 .h_movietitle .m_tit h2.smalltxt span {
-    font-size: 1.5em
+    font-size: .36rem
 }
 
 .h_movietitle .m_tit h2.smalltxt {
-    padding: 0 0 .5em 0
+    padding: 0 0 .12rem 0
 }
 
 .h_movietitle .txtlink {
-    font-size: 1.6rem;
+    font-size: .384rem;
     color: #fff;
     display: block;
-    height: 4.4rem;
-    padding-right: 1.5rem;
-    line-height: 4.4rem;
-    padding-left: 1.5rem;
+    height: 1.056rem;
+    padding-right: .36rem;
+    line-height: 1.056rem;
+    padding-left: .36rem;
     text-align: right
 }
 
 .h_movietitle .m_tit h2.catetit span {
-    font-size: 1.4rem;
-    line-height: 4.4rem
+    font-size: .336rem;
+    line-height: 1.056rem
 }
 
 .s_menu {
-    padding: 0 1.5em;
+    padding: 0 .36rem;
     height: 100%
 }
 
 .i_search {
     display: block;
-    width: 5em;
-    height: 4.4em;
+    width: 1.2rem;
+    height: 1.056rem;
     background: url(//static1.mtime.cn/html5/20190530163934/images/2014/search_ico_02.png) no-repeat center center;
-    background-size: 2.1em auto
+    background-size: .504rem auto
 }
 
 .s_nav {
@@ -373,7 +375,7 @@ menu {
 .s_nav ul {
     background: #0d121a;
     display: inline-block;
-    border-radius: 4rem;
+    border-radius: .96rem;
     width: auto;
     margin: 0 auto;
     padding: 1px;
@@ -387,7 +389,7 @@ menu {
 
 .s_nav li a {
     background: #0d121a;
-    padding: .7rem 2.8rem;
+    padding: .168rem 2.8rem;
     border-radius: 4rem;
     display: block;
     color: #999;

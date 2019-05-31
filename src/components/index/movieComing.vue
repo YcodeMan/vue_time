@@ -1,10 +1,10 @@
 <template>
     <div class="movieComing">
         <h2>
-            <router-link tag="a">
+            <a tag="a">
                 <i class="i_tnext"></i>
                 <b>正在热映(43部)</b>
-            </router-link>
+            </a>
         </h2>
         <ul>
             <a>
@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-
+    
 </style>
 
 

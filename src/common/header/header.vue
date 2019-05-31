@@ -6,11 +6,6 @@
           <i class="logo_mtime"></i>
         </a>
       </li>
-<<<<<<< HEAD
-      <li class="td curr">
-        <a>
-          <span>首页</span>
-=======
       <li 
       class="td" 
       v-for="(item,index) in title"
@@ -18,30 +13,10 @@
         <a>
           <span>{{item}}</span>
           <em class="new" v-if="item=='商城'">NEW</em>
->>>>>>> zhan
         </a>
       </li>
       <li class="td">
         <a>
-<<<<<<< HEAD
-          <span>购票</span>
-        </a>
-      </li>
-      <li class="td">
-        <a>
-          <span>商城</span>
-          <em class="new">NEW</em>
-        </a>
-      </li>
-      <li class="td">
-        <a>
-          <span>发现</span>
-        </a>
-      </li>
-      <li class="td">
-        <a>
-=======
->>>>>>> zhan
           <i class="ico_my"></i>
         </a>
       </li>

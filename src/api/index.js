@@ -4,7 +4,8 @@ import http from '@utils/http'
 export const MoviehotShow = http(
     'get',
     '/Service/callback.mi/Showtime/LocationMovies.api',
-    { locationId: 290, t: 201953020511061412 }
+    { locationId: 366, t: 201953117275269512 }
+    
 )
 
 // 广告热点

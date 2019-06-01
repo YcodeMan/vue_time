@@ -36,7 +36,7 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-    height: 100%;
+    // height: 100%;
     background: #1c2635;
     li{
         text-align: center;
@@ -56,7 +56,7 @@ export default {
     height: 100%;
     box-align: center;
     width: 100%;
-    display: box;   
+    display: flex;   
 }
 .td {
     box-flex: 1;
@@ -76,7 +76,7 @@ export default {
     font-weight: bold;
     ::after {
         content: '';
-        display: block;
+        display: flex;
         height: .048em;
         background: #fff;
         width: 100%;
@@ -87,7 +87,7 @@ export default {
     }
 }
 .new {
-    background: linear-gradient(top,#ef4545,#d80808);
+    background: linear-gradient(to bottom,#ef4545,#d80808);
     width: .6rem;
     height: 0.288rem;
     border-radius: .24rem;

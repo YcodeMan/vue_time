@@ -4,32 +4,32 @@
         <ul>
             <li>
                 <div class="hot-img">
-                    <img src="./images/get.jfif">
+                    <img src="/images/get.jfif">
                 </div>
                 <div class="hot-info">
                     <a href="#">皮卡丘凭什么征服全世界？</a>
                     <span>一篇文章带你入宝可梦的坑</span>
-                    <span>2019-05-17&nbsp20:45:51</span>
+                    <span>2019-05-17&nbsp;20:45:51</span>
                 </div>
             </li>
             <li>
                 <div class="hot-img">
-                    <img src="./images/get.jfif">
+                    <img src="/images/get.jfif">
                 </div>
                 <div class="hot-info">
                     <a href="#">皮卡丘凭什么征服全世界？</a>
                     <span>一篇文章带你入宝可梦的坑</span>
-                    <span>2019-05-17&nbsp20:45:51</span>
+                    <span>2019-05-17&nbsp;20:45:51</span>
                 </div>
             </li>
             <li>
                 <div class="hot-img">
-                    <img src="./images/get.jfif">
+                    <img src="/images/get.jfif">
                 </div>
                 <div class="hot-info">
                     <a href="#">皮卡丘凭什么征服全世界？</a>
                     <span>一篇文章带你入宝可梦的坑</span>
-                    <span>2019-05-17&nbsp20:45:51</span>
+                    <span>2019-05-17&nbsp;20:45:51</span>
                 </div>
             </li>
             

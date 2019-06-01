@@ -20,6 +20,7 @@ server.interceptors.response.use(
 )
 
 export const http = (method, url, data = {}) => {
+
     if (method === 'get') {
         return server.get(url, {
             params: data

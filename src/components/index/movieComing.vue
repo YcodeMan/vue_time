@@ -7,123 +7,16 @@
       </a>
     </h2>
     <ul>
-      <li>
+      <li v-for="(item,index) in someMovie " :key="index">
         <a>
           <div>
-            <img
-              src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F23%2F095633.44711442_1280X720X2.jpg&width=130&height=195&clipType=4"
-            >
-            <em>
-              <i>7.7</i>
+            <img :src="item.img">
+            <em v-show='item.r > 0 ? true : false'>
+              <i>{{item.r > 1 ? item.r : ''}}</i>
             </em>
           </div>
           <p>
-            <span>哥斯拉2：怪兽之王</span>
-          </p>
-        </a>
-      </li>
-      <li>
-        <a>
-          <div>
-            <img
-              src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F23%2F095633.44711442_1280X720X2.jpg&width=130&height=195&clipType=4"
-            >
-            <em>
-              <i>7.7</i>
-            </em>
-          </div>
-          <p>
-            <span>哥斯拉2：怪兽之王</span>
-          </p>
-        </a>
-      </li>
-      <li>
-        <a>
-          <div>
-            <img
-              src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F23%2F095633.44711442_1280X720X2.jpg&width=130&height=195&clipType=4"
-            >
-            <em>
-              <i>7.7</i>
-            </em>
-          </div>
-          <p>
-            <span>哥斯拉2：怪兽之王</span>
-          </p>
-        </a>
-      </li>
-      <li>
-        <a>
-          <div>
-            <img
-              src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F23%2F095633.44711442_1280X720X2.jpg&width=130&height=195&clipType=4"
-            >
-            <em>
-              <i>7.7</i>
-            </em>
-          </div>
-          <p>
-            <span>哥斯拉2：怪兽之王</span>
-          </p>
-        </a>
-      </li>
-      <li>
-        <a>
-          <div>
-            <img
-              src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F23%2F095633.44711442_1280X720X2.jpg&width=130&height=195&clipType=4"
-            >
-            <em>
-              <i>7.7</i>
-            </em>
-          </div>
-          <p>
-            <span>哥斯拉2：怪兽之王</span>
-          </p>
-        </a>
-      </li>
-      <li>
-        <a>
-          <div>
-            <img
-              src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F23%2F095633.44711442_1280X720X2.jpg&width=130&height=195&clipType=4"
-            >
-            <em>
-              <i>7.7</i>
-            </em>
-          </div>
-          <p>
-            <span>哥斯拉2：怪兽之王</span>
-          </p>
-        </a>
-      </li>
-      <li>
-        <a>
-          <div>
-            <img
-              src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F23%2F095633.44711442_1280X720X2.jpg&width=130&height=195&clipType=4"
-            >
-            <em>
-              <i>7.7</i>
-            </em>
-          </div>
-          <p>
-            <span>哥斯拉2：怪兽之王</span>
-          </p>
-        </a>
-      </li>
-      <li>
-        <a>
-          <div>
-            <img
-              src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F23%2F095633.44711442_1280X720X2.jpg&width=130&height=195&clipType=4"
-            >
-            <em>
-              <i>7.7</i>
-            </em>
-          </div>
-          <p>
-            <span>哥斯拉2：怪兽之王</span>
+            <span>{{item.tCn}}</span>
           </p>
         </a>
       </li>
@@ -132,76 +25,98 @@
 </template>
 
 <script>
+import Vuex from "vuex";
 export default {
-  name: "movieComing"
+  name: "movieComing",
+  created() {
+    this.movieComing();
+  },
+  data() {
+    return {
+
+    };
+  },
+  computed: {
+    ...Vuex.mapState({
+      someMovie: state => state.indexMovie.someMovie
+    })
+  },
+  methods: {
+    ...Vuex.mapActions({
+      movieComing: "indexMovie/actionsMovieComing"
+    })
+  }
 };
 </script>
 
 <style lang="scss" scoped>
+$rem0_4: .4rem;
 .movieComing {
-  padding: .12rem .34rem .34rem;
+  margin: 0.12rem 0.34rem 0.34rem;
   h2 {
     width: 100%;
-    height: .8rem;
-    line-height: .8rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
     position: relative;
     a {
       height: 100%;
       i {
-       position: absolute;
-       right: .1rem;
-       width: .4rem;
-       font-size: .4rem;
-       font-weight: 200;
+        position: absolute;
+        right: 0.1rem;
+        width: $rem0_4;
+        font-size: $rem0_4;
+        font-weight: 200;
       }
       b {
         display: inline-block;
         width: 3.4rem;
-        height: .56rem;
-        font-size: .35rem;
+        height: 0.56rem;
+        font-size: 0.35rem;
       }
     }
   }
   ul {
-      display: flex;
-      flex-wrap: wrap;
-      li {
-          width: 1.7rem;
-          height: 3.4rem;
-          div {
-              position: relative;
-              width: 1.45rem;
-              height: 2.28rem;
-              margin: 0 .14rem ;
-              img {
-                 width: 1.5rem;
-              }
-              em {
-                  position: absolute;
-                  top: .06rem;
-                  right: 0;
-                  width: .42rem;
-                  height: .4rem;
-                  text-align: center;
-                  line-height: .4rem;
-                  background-color: #659d0e;
-                  i {
-                      color: #fff
-                  }
-              }
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      width: 1.7rem;
+      height: 3.4rem;
+      div {
+        position: relative;
+        width: 1.45rem;
+        height: 2.28rem;
+        margin: 0 0.14rem;
+        img {
+          width: 1.5rem;
+        }
+        em {
+          position: absolute;
+          top: 0.06rem;
+          right: 0;
+          width: 0.42rem;
+          height: $rem0_4;
+          text-align: center;
+          line-height: $rem0_4;
+          background-color: #659d0e;
+          i {
+            color: #fff;
           }
-          p {
-              width: 1.6rem;
-              height: .88rem;
-              overflow: hidden;
-              padding-top: .1rem;
-              span {
-                  width: 1.5rem;
-                  height: .82rem;
-                  font-size: .32rem
-              }
-          }
+        }
       }
+      p {
+        width: 1.6rem;
+        height: 0.77rem;
+        overflow: hidden;
+        padding-top: 0.1rem;
+        text-align: center;
+        span {
+          width: 1.5rem;
+          height: 0.82rem;
+          font-size: 0.32rem;
+          color: #000;
+        }
+      }
+    }
   }
 }
 

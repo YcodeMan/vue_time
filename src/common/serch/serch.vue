@@ -37,7 +37,7 @@ export default {
     width: 0.2rem;
     height: 0.2rem;
     background-color: yellow;
-    background: url(./images/i_city.png) no-repeat -3px 5px;
+    background: url(../../../public/images/i_city.png) no-repeat -3px 5px;
 }
 .city b{
     font-size: 1.4em;
@@ -53,7 +53,7 @@ export default {
     display: block;
     width: 0.8rem;
     height: 0.8rem;
-    background: url(./images/search_ico_01.png) no-repeat 30px 20px;
+    background: url(../../../public/images/search_ico_01.png) no-repeat 30px 20px;
     float: left;
 }
 .serch-input input{

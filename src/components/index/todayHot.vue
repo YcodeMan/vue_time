@@ -71,7 +71,7 @@ export default {
         width: 100%;
     }
     .todayHot ul li .hot-info{
-        margin:0.2rem 0;
+        margin:0.16rem 0;
         width: 59%;
         float: right;
         display: block;

@@ -6,25 +6,13 @@
           <i class="logo_mtime"></i>
         </a>
       </li>
-      <li class="td curr">
+      <li 
+      class="td" 
+      v-for="(item,index) in title"
+      :key="index">
         <a>
-          <span>首页</span>
-        </a>
-      </li>
-      <li class="td">
-        <a>
-          <span>购票</span>
-        </a>
-      </li>
-      <li class="td">
-        <a>
-          <span>商城</span>
-          <em class="new">NEW</em>
-        </a>
-      </li>
-      <li class="td">
-        <a>
-          <span>发现</span>
+          <span>{{item}}</span>
+          <em class="new" v-if="item=='商城'">NEW</em>
         </a>
       </li>
       <li class="td">
@@ -36,7 +24,14 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+    name: 'Header',
+    data() {
+        return {
+            title: ['首页','购票','商城','发现']
+        }
+    }
+};
 </script>
 
 <style lang="scss" scoped>

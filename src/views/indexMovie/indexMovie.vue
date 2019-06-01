@@ -1,17 +1,18 @@
 <template>
     <div class="IndexMovie">
         <movieComing/>
+        <todayHot/>
     </div>
 </template>
 
 <script>
-import Header from '@common/header/header'
 import movieComing from '@components/index/movieComing'
+import todayHot from '@common/today-hot/today-hot'
 export default {
     name:'IndexMovie',
     components: {
-        Header,
-        movieComing
+        movieComing,
+        todayHot
     }
 }
 </script>

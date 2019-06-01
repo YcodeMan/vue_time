@@ -7,7 +7,7 @@
 
 <script>
 import movieComing from '@components/index/movieComing'
-import todayHot from '@common/today-hot/today-hot'
+import todayHot from '@components/index/todayHot'
 export default {
     name:'IndexMovie',
     components: {

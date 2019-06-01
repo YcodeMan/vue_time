@@ -21,7 +21,8 @@ module.exports = {
                 '@utils': path.resolve(__dirname, './src/utils'),
                 '@components': path.resolve(__dirname, './src/components'),
                 '@common': path.resolve(__dirname, './src/common'),
-                '@views': path.resolve(__dirname, './src/views')
+                '@views': path.resolve(__dirname, './src/views'),
+                '@filters': path.resolve(__dirname, './src/filters')
             }
         }
     }

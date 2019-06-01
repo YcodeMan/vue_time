@@ -36,10 +36,10 @@
     <div class="copy">
         <div class="copy-logo">
             <span>
-                <img src="./images/fot_logo.png">
+                <img src="/images/fot_logo.png">
             </span>
             <a href="#">
-                <img src="./images/h_mark.jpg" alt>
+                <img src="/images/h_mark.jpg" alt>
             </a>
         </div>
         <p>Copyright 2006-2019 Mtime.com Inc. All rights reserved.</p>

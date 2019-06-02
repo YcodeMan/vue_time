@@ -26,7 +26,10 @@ import {formatDate} from '@filters/formatDate'
 export default {
     name: 'todayHot',
     created () {
-        this.getHotPoints()
+       if (this.HotPoints.length > 0) {
+           return;
+       }
+        this.getHotPoints(formatDate(new Date(), 'yyyyMMddhhmmss'))
     },
     computed: {
         ...Vuex.mapState({

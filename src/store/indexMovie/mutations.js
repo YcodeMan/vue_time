@@ -1,5 +1,5 @@
 export default {
-    // 正则预售请求
+    // 请求正在上映电影数据
     mutationsMovieComing(state, param) {
         // 保存预售的电影数量
         state.totalComingMovieNum = param.totalComingMovie

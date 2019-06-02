@@ -1,4 +1,4 @@
-import http from '@utils/http'
+import {http} from '@utils/http'
 
 // 即将上映
 export const comingMovie = () => http(

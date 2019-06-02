@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const server = axios.create({
-    timeout: 3000,
+    timeout: 4000,
     withCredentials: true
 })
 

@@ -1,18 +1,18 @@
 import {http} from '@utils/http'
 
 // 正在热映
-export const MoviehotShow = () => http(
+export const MoviehotShow = ({cityId, date}) => http(
     'get',
     '/Service/callback.mi/Showtime/LocationMovies.api',
-    { locationId: 366, t: 201953117275269512 }
+    { locationId: cityId, t: date }
     
 )
 
 // 广告热点
-export const hotPoints = () => http(
+export const hotPoints = (date) => http(
     'get',
     '/Service/callback.mi/PageSubArea/GetFirstPageAdvAndNews.api',
-    {t: 201953116354327850}
+    {t: date}
 )
 
 // 图片

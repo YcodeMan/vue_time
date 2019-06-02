@@ -3,7 +3,7 @@
     <h2>
       <a>
         <i>&gt;</i>
-        <b>正在热映({{movieLists.length}}部)</b>
+        <b>正在热映({{movieListMsg.length}}部)</b>
       </a>
     </h2>
     <ul>
@@ -32,26 +32,63 @@
 
 <script>
 import Vuex from "vuex";
+import {formatDate} from '@filters/formatDate'
 export default {
   name: "movieComing",
   created() {
-    this.movieComing();
+    // 格式化时间请求新数据
+    var date = formatDate(new Date() , 'yyyyMMddhhmmss')
+
+      // 判断当前是否有city对象存储在本地
+    if (this.city.id ) {
+      // 当前地址id有但数据不存在
+      if (!(this.someMovie.length > 0 
+          && this.totalComingMovieNum 
+          && this.movieListMsg.length > 0)) {
+        this.movieComing({
+              date, 
+              "cityId": this.city.id
+            })
+            return 
+      }
+      return;
+    } else {
+        // 异步立即执行函数
+        // 异步请求地址数据,然后根据地址请求电影数据
+      (async() => {
+          await this.getHotCity(date)
+          // 请求电影数据
+          this.movieComing({
+              date, 
+              "cityId": this.city.id
+            })
+      })()  
+    
+    }
+
+
+  
   },
   data() {
     return {
-
+      _city: this.city
     };
   },
   computed: {
     ...Vuex.mapState({
       someMovie: state => state.indexMovie.someMovie,
       totalComingMovieNum: state => state.indexMovie.totalComingMovieNum,
-      movieLists: state => state.indexMovie.movieLists
-    })
+      movieListMsg: state => state.indexMovie.movieListMsg,
+
+      // 首页第一次请求city存入本地存储
+      city: state => state.city.city
+    }),
   },
   methods: {
     ...Vuex.mapActions({
-      movieComing: "indexMovie/actionsMovieComing"
+      movieComing: "indexMovie/actionsMovieComing",
+
+      getHotCity: 'city/actionsHotCity'
     })
   }
 };

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import indexMovie from './indexMovie'
 import movieDetails from './movieDetails'
+import newsPage from './newsPage'
 
 Vue.use(Router)
 
@@ -12,6 +13,7 @@ export default new Router({
       redirect: '/index'
     },
     indexMovie,
-    movieDetails
+    movieDetails,
+    newsPage
   ]
 })

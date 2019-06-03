@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const server = axios.create({
-    timeout: 3000,
+    timeout: 4000,
     withCredentials: true
 })
 
@@ -20,6 +20,7 @@ server.interceptors.response.use(
 )
 
 export const http = (method, url, data = {}) => {
+
     if (method === 'get') {
         return server.get(url, {
             params: data

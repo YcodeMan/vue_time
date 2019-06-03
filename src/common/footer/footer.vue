@@ -49,7 +49,7 @@
 
 <script>
     export default {
-        name: "footer",
+        name: "Footer",
         components: {}
     };
 </script>
@@ -72,7 +72,7 @@
         padding: 0.2rem 0.4rem;
     }
     .footer-nav a span {
-        font-size: 1.2em;
+        font-size: 0.3rem;
         color: #0074c5;
         font-weight: 600;
     }
@@ -82,7 +82,6 @@
         justify-content: space-around;
     }
     .footer-link ul li {
-        float: left;
         padding: 0 0.3rem;
         border-left: 1px solid gray;
     }
@@ -90,7 +89,7 @@
         border: none;
     }
     .footer-link ul li a {
-        font-size: 1.2em;
+        font-size: 0.3rem;
     }
     .copy-logo {
         display: flex;

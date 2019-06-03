@@ -1,5 +1,5 @@
 <template>
-    <div class="citylist">
+    <div class="city">
         <!-- 当前城市定位 -->
         <dl>
             <dt>
@@ -28,61 +28,62 @@
             </dd>
         </dl>
 <!-- -----------------按字母排序城市列表---------------- -->
-        <div class="city">
-            <p>A</p>
+        <div class="city" v-for="(item,index) in cityList" :key="index">
+            <p>{{item.index}}</p>
             <ul>
-                <li><a href="#">成都</a></li>
-                <li><a href="#">成都</a></li>
-                <li><a href="#">成都</a></li>
-                <li><a href="#">成都</a></li>
-                <li><a href="#">成都</a></li>
-                <li><a href="#">成都</a></li>
-                <li><a href="#">成都</a></li>
-                <li><a href="#">上海</a></li>
-                <li><a href="#">深圳</a></li>
-                <li><a href="#">北京</a></li>
-                <li><a href="#">广州</a></li>
-                <li><a href="#">上海</a></li>
-                <li><a href="#">深圳</a></li>
-                <li><a href="#">北京</a></li>
-                <li><a href="#">广州</a></li>
+                <li  v-for="(data,idx) in item.list" :key="idx"><a href="#">{{data.n}}</a></li>
             </ul>
         </div>
     </div>
 </template>
 
 <script>
+import Vuex from 'vuex';
 export default {
-    name: "cityList"
+    name: "City",
+    created() {
+       this.mutationsCityList(this.cityList)
+    },
+    methods: {
+        ...Vuex.mapMutations({
+            mutationsCityList: "city/mutationsCityList"
+        })
+    },
+    computed: {
+        ...Vuex.mapState({
+            city: state => state.city.city,
+            cityList: state => state.city.cityList
+        })
+    },
 }
 </script>
 
 
 
 <style scoped>
-    .citylist{
+    .city{
         width: 100%;
         font-size: 0.35rem;
         color: #333;
     }
-    .citylist dl dt,.city p{
+    .city dl dt,.city p{
         background-color: #ebebeb;
         color: #777;
     }
-    .citylist p{
+    .city p{
         padding: 0.1rem 0.3rem;
     }
-    .citylist dl:nth-child(1) dd p{
+    .city dl:nth-child(1) dd p{
         padding-top: 0.25rem;
         padding-bottom: 0.25rem;
     }
-    .citylist ul{
+    .city ul{
         width: 100%;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
     }
-    .citylist ul li{
+    .city ul li{
         flex: 25%;
         text-align: center;
         margin: 0.2rem 0;

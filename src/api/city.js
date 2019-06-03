@@ -1,4 +1,4 @@
-import http from '@utils/http'
+import {http} from '@utils/http'
 
 // 电影院地址
 export const cinemaList = http(

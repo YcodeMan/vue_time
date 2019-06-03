@@ -1,5 +1,6 @@
 <template>
     <div class="IndexMovie">
+        <Header/>
         <movieComing/>
     </div>
 </template>
@@ -10,8 +11,8 @@ import movieComing from '@components/index/movieComing'
 export default {
     name:'IndexMovie',
     components: {
-        Header,
-        movieComing
+        movieComing,
+        Header
     }
 }
 </script>

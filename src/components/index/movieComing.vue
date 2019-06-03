@@ -1,7 +1,7 @@
 <template>
     <div class="movieComing">
         <h2>
-            <router-link tag="a">
+            <router-link tag="a" to="">
                 <i class="i_tnext"></i>
                 <b>正在热映(43部)</b>
             </router-link>
@@ -20,7 +20,7 @@
 
 <script>
 export default {
-    name:'movieComing'
+    name:'MovieComing'
 }
 </script>
 

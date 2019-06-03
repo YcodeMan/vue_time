@@ -60,9 +60,30 @@ export default {
       }
     }
   }
-}
-
- .content >>> div {
-    color: red;
+  .content {
+    ::v-deep div {
+      margin-top: 0.32rem;
+      font-size: 0.35rem;
+      line-height: 1.6;
+      b {
+        color: #333;
+        font-weight: bold;
+      }
+      img {
+        width: 100%;
+      }
+      video {
+        position: relative;
+        z-index: 0;
+        width: 6.6rem;
+        height: 4.3rem;
+        background: #000
+      }
+      p {
+        margin: .2rem 0 0;
+        line-height: 1.5;
+      }
+    }
   }
+}
 </style>

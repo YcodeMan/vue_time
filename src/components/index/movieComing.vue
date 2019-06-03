@@ -7,7 +7,7 @@
       </a>
     </h2>
     <ul>
-      <li v-for="(item,index) in someMovie " :key="index">
+      <v-touch tag="li" @top='ToMovieDetails' v-for="(item,index) in someMovie " :key="index">
         <a>
           <div>
             <img :src="item.img">
@@ -19,7 +19,7 @@
             <span>{{item.tCn}}</span>
           </p>
         </a>
-      </li>
+      </v-touch>
     </ul>
     <h2>
       <a>

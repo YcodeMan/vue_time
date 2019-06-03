@@ -1,4 +1,5 @@
 export default {
+    detail: '',
     // 保存正在上映的电影数据
     movieListMsg: JSON.parse(window.sessionStorage.getItem('movieListMsg')) || [],
     // 保存预售的电影数量

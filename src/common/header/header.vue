@@ -54,13 +54,12 @@ export default {
 }
 .table_v_c {
     height: 100%;
-    box-align: center;
+    justify-content: space-around;
     width: 100%;
     display: flex;   
 }
 .td {
-    box-flex: 1;
-    flex: 1;
+  flex: 1;
 }
 .logo_mtime {
     width: 1.344rem;
@@ -69,6 +68,7 @@ export default {
     background-size: contain;
     display: inline-block;
     vertical-align: middle;
+    margin: 0 .282rem;
 }
 .header li.curr a {
     color: #fff;

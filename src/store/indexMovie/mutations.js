@@ -1,4 +1,7 @@
 export default {
+    mutationsDetails(state, params) {
+        state.detail = params;
+    },
     // 请求正在上映电影数据
     mutationsMovieComing(state, param) {
         // 保存预售的电影数量

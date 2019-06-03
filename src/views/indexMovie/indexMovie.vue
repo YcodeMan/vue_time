@@ -1,5 +1,6 @@
 <template>
     <div class="IndexMovie">
+        <Header/>
         <movieComing/>
         <todayHot/>
     </div>
@@ -12,6 +13,7 @@ export default {
     name:'IndexMovie',
     components: {
         movieComing,
+        Header,
         todayHot
     }
 }

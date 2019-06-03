@@ -4,7 +4,7 @@
       <h2>
         <a href="#!/movie/213190/fullcredits/">
           <span class="i_tnext"></span>
-          <b>118位演职员</b>
+          <b>{{personCount}}位演职员</b>
         </a>
       </h2>
       <div class="table">
@@ -15,15 +15,15 @@
               <li>
                 <a href="#!/person/905046/" class="picbox">
                   <img
-                    src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg31.mtime.cn%2Fph%2F2014%2F02%2F22%2F194327.81724556_1280X720X2.jpg&amp;width=172&amp;height=260&amp;clipType="
+                    src=""
                     class="m_img"
                   >
                 </a>
                 <a href="#!/person/905046/">
-                  <h3>迈克尔·道赫蒂</h3>
+                  <h3>{{director.directorName}}</h3>
                 </a>
                 <a href="#!/person/905046/">
-                  <p>Michael Dougherty</p>
+                  <p>{{director.directorNameEn}}</p>
                 </a>
               </li>
             </ul>
@@ -84,8 +84,16 @@
 </template>
 
 <script>
+import Vuex from 'vuex'
 export default {
-  name: "CastList"
+  name: "CastList",
+  computed: {
+    ...Vuex.mapState({
+    actorList: state => state.indexMovie.detail.actorList,
+    director: state => state.indexMovie.detail.director,
+    personCount: state => state.indexMovie.detail.personCount,
+    }),
+  },
 };
 </script>
 

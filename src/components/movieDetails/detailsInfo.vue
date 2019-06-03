@@ -48,10 +48,10 @@
             </p>
           </li>
           <li>
-            <p>{{detail.type}} / {{detail.type}} / {{detail.type}}</p>
+            <p>{{toString(detail.type)}}</p>
           </li>
           <li>
-            <p>上映</p>
+            <p>{{formatTime(detail.release)}}</p>
           </li>
         </ul>
         <aside class="m_cin_btn">
@@ -91,10 +91,27 @@ export default {
       detail: state => state.indexMovie.detail,
     }),
   },
-  filters: {
-    timer(el){
-      let arr = el.split('-');
-      return arr[0] + '年'+ arr[1] + '月' + arr[2] + '日';
+  methods: {
+    formatTime(val){
+      if(val){
+        if(val.date){
+          var arr = val.date.split('-');
+        }
+        return arr[0] + '年'+ arr[1] + '月' + arr[2] + '日'+val.location+'上映';
+      }
+    },
+    toString(data) { 
+      let str='';
+      if(data){
+        for(var i=0;i<data.length;i++){
+          if(i!=data.length-1){
+            str += data[i]+' / ';
+          } else{
+            str += data[i]
+          }
+        }
+      }
+        return str;
     }
   }
 };

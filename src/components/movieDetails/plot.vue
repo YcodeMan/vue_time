@@ -1,8 +1,8 @@
 <template>
     <div>
         <article class="cin_more">
-          <p :class="show?'show':''">{{detail.content}}</p>
-          <v-touch tag='a' v-on:tap="show=!show" class="m_btn_tmore"></v-touch>
+          <p :class="show?'show':''">{{content}}</p>
+          <v-touch tag='a' v-on:tap="show=!show" :class="show?'m_btn_tmore m_btn_bmore':'m_btn_tmore'"></v-touch>
         </article>
     </div>
 </template>
@@ -18,7 +18,7 @@ export default {
     },
     computed: {
         ...Vuex.mapState({
-        detail: state => state.indexMovie.detail,
+        content: state => state.indexMovie.detail.content,
         }),
     },
 }
@@ -43,5 +43,8 @@ export default {
     background: #fff url(//static1.mtime.cn/html5/20190531185056/images/2014/i-tmore.png) no-repeat center center;
     background-size: auto .192rem;
     height: .696rem;
+}
+.cin_more .m_btn_bmore{
+    transform: rotate(180deg);
 }
 </style>

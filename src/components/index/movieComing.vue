@@ -92,7 +92,7 @@ export default {
      var date = formatDate(new Date() , 'yyyyMMddhhmmss')
 
       this.$router.push({
-        name: 'details',
+        name: 'movieDetails',
         params:{movieId:id, locationId: this.city.id, t: date}
       })
     }

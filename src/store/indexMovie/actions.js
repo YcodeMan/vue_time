@@ -25,7 +25,6 @@ export default {
     //请求电影详情
     async actionsDetails({ commit }) {
         let data = await detail();
-        console.log(data)
         commit("mutationsDetails", data);
     }
 }

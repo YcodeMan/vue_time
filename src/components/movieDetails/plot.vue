@@ -2,7 +2,7 @@
     <div>
         <article class="cin_more">
           <p>{{detail.content}}</p>
-          <v-touch tag='a' @click="return false;" class="m_btn_tmore"></v-touch>
+          <v-touch tag='a'  class="m_btn_tmore"></v-touch>
         </article>
     </div>
 </template>

@@ -61,6 +61,7 @@ export default {
         font-weight: 600;
     }
     .todayHot ul li{
+        display: flex;
         margin: 0 0.2rem;
         border-bottom: 1px dashed gray;
     }
@@ -76,7 +77,6 @@ export default {
     .todayHot ul li .hot-info{
         margin:0.16rem 0;
         width: 59%;
-        float: right;
         display: block;
     }
     .todayHot ul li .hot-info a{

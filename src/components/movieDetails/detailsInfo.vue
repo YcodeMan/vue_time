@@ -48,10 +48,10 @@
             </p>
           </li>
           <li>
-            <p>{{detail.type[0]}} / {{detail.type[1]}} / {{detail.type[2]}}</p>
+            <p>{{detail.type}} / {{detail.type}} / {{detail.type}}</p>
           </li>
           <li>
-            <p>{{detail.release.date | timer()}}{{detail.release.location}}上映</p>
+            <p>上映</p>
           </li>
         </ul>
         <aside class="m_cin_btn">

@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import Header from '@common/header/header'
 import movieComing from '@components/index/movieComing'
 import todayHot from '@components/index/todayHot'
 export default {

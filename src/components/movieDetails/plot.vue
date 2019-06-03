@@ -1,8 +1,8 @@
 <template>
     <div>
         <article class="cin_more">
-          <p>{{detail.content}}</p>
-          <v-touch tag='a' @click="return false;" class="m_btn_tmore"></v-touch>
+          <p :class="show?'show':''">{{detail.content}}</p>
+          <v-touch tag='a' v-on:tap="show=!show" class="m_btn_tmore"></v-touch>
         </article>
     </div>
 </template>
@@ -11,14 +11,16 @@
 import Vuex from 'vuex';
 export default {
     name: 'Plot',
+    data() {
+        return {
+            show: false
+        }
+    },
     computed: {
         ...Vuex.mapState({
         detail: state => state.indexMovie.detail,
         }),
     },
-    methods: {
-
-    }
 }
 </script>
 

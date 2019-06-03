@@ -9,4 +9,6 @@ export default {
     // 热点评论数据
     HotPoints: JSON.parse(window.sessionStorage.getItem('HotPoints')) || [],
 
+    // 热点评论详情数据
+    HotPointsDetails: {}
 }

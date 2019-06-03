@@ -12,10 +12,19 @@ export default {
         window.sessionStorage.setItem('movieListMsg', JSON.stringify(param.ms))
         window.sessionStorage.setItem('someMovie', JSON.stringify(state.someMovie))
     },
+    // 热评论
     mutationsHotPoints(state, param) {
 
         // 保存热点评论数据
         state.HotPoints = param
         window.sessionStorage.setItem('HotPoints', JSON.stringify(param))
+    },
+
+    // 热评论详情
+    mutationsHotPointsDetails(state, param) {
+        console.log(param)
+        state.HotPointsDetails = param
     }
+
+
 }

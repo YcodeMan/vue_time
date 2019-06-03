@@ -15,6 +15,14 @@ export const hotPoints = (date) => http(
     {t: date}
 )
 
+// 广告热点
+export const hotPointsDetails = () => http(
+    'get',
+    '/Service/callback.mi/News/Detail.api',
+    {newsId:1591621, t:201962171332872}
+)
+
+
 // 图片
 export const areaFirstImg = () => http(
     'get',

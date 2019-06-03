@@ -1,7 +1,7 @@
 import {
     MoviehotShow,
     hotPoints,
-    areaFirstImg
+    hotPointsDetails
 } from '@api/indexMovie'
 
 
@@ -15,5 +15,10 @@ export default {
     async actionsHotPoints({commit}, param) {
         let data = await hotPoints(param)
         commit('mutationsHotPoints', data.hotPoints)
+    },
+    // 请求热点评论详情
+    async actionsHotPointsDetails({commit}) {
+        let data = await hotPointsDetails()
+       commit('mutationsHotPointsDetails', data)
     }
 }

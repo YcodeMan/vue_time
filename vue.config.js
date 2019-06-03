@@ -9,6 +9,11 @@ module.exports = {
             '/api': {
                 target: 'https://ticket-m.mtime.cn',
                 changeOrigin: true
+            },
+            // 'http://vfx.mtime.cn/Video/2019/02/27/mp4/190227082529746178.mp4'
+            '/Video/2019/02/27/mp4/190227082529746178.mp4' : {
+                target: 'http://vfx.mtime.cn',
+                changeOrigin: true
             }
         }
     },

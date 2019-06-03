@@ -1,5 +1,6 @@
 export default {
     path: '/index',
     name: 'index',
-    component: () => import('@views/indexMovie/indexMovie') 
+    component: () => import('@views/indexMovie/indexMovie'),
+    
 }

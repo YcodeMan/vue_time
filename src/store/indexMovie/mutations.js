@@ -25,9 +25,13 @@ export default {
 
     // 热评论详情
     mutationsHotPointsDetails(state, param) {
-        console.log(param)
         state.HotPointsDetails = param
-    }
+    },
 
+    // 设置点击的热点评论id
+    mutationsSetHotId(state, param) { 
+        state.HotPointId = param
+        window.localStorage.setItem('HotPointId', JSON.stringify(param))
+    }
 
 }

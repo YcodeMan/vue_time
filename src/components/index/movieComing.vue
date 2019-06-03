@@ -93,6 +93,7 @@ export default {
 
       this.$router.push({
         name: 'movieDetails',
+        path: 'movieDetails',
         params:{movieId:id, locationId: this.city.id, t: date}
       })
     }

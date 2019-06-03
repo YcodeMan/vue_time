@@ -11,5 +11,8 @@ export default {
     HotPoints: JSON.parse(window.sessionStorage.getItem('HotPoints')) || [],
 
     // 热点评论详情数据
-    HotPointsDetails: {}
+    HotPointsDetails: {},
+
+    // 热点评论详情单挑数据id
+    HotPointId: JSON.parse(window.localStorage.getItem('HotPointId')) || 0
 }

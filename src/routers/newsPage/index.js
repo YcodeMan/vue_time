@@ -1,5 +1,6 @@
 export default {
     path: '/news',
-    naem: 'nwsPage',
+    name: 'news',
+    props:true,
     component: () => import('@views/newsPage/newsPage')
 }

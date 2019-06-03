@@ -18,8 +18,8 @@ export default {
         commit('mutationsHotPoints', data.hotPoints)
     },
     // 请求热点评论详情
-    async actionsHotPointsDetails({ commit }) {
-        let data = await hotPointsDetails()
+    async actionsHotPointsDetails({ commit }, param) {
+        let data = await hotPointsDetails(param)
         commit('mutationsHotPointsDetails', data)
     },
     //请求电影详情

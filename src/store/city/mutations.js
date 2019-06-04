@@ -67,10 +67,15 @@ export default {
     },
 
     mutationsCityToggle(state,params){
-        state.city.id = params.id;
-        state.city.name = params.n;
-        window.sessionStorage.setItem("name",params.n);
-        window.sessionStorage.setItem("id",params.id)
+       
+        // 改变state中的值
+        let id = params.cityId,
+            name = params.n
+        state.city = {id, name}
+       
+        // 存储city数据
+        window.localStorage.setItem("city", JSON.stringify(state.city));
+        
     },
 
     //城市定位

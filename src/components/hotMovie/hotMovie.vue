@@ -43,7 +43,7 @@
 
 <script>
 import Vuex from 'vuex'
-import formatDate from '@filters/formatDate'
+import {formatDate} from '@filters/formatDate'
 export default {
   name: "hotMovieContent",
   created () {

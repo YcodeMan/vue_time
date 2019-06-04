@@ -11,6 +11,10 @@
       </p>
     </div>
     <div class="content" v-html="hotDetails.content"></div>
+    <div class="author">
+      <p>(作者：{{hotDetails.author}}  编辑：{{hotDetails.editor}})</p>
+    </div>
+
   </div>
 </template>
 
@@ -18,17 +22,23 @@
 import Vuex from "vuex";
 export default {
   name: "newsPageTop",
-  created() {
-    this.getHotDetails();
+  activated() {
+    let { id, t } = this.$route.params;
+    if (!id) {
+     id = this.HotPointId
+    }
+    this.getHotDetails({ id, t });
   },
   methods: {
     ...Vuex.mapActions({
       getHotDetails: "indexMovie/actionsHotPointsDetails"
+  
     })
   },
   computed: {
     ...Vuex.mapState({
-      hotDetails: state => state.indexMovie.HotPointsDetails
+      hotDetails: state => state.indexMovie.HotPointsDetails,
+      HotPointId: state => state.indexMovie.HotPointId
     })
   }
 };
@@ -77,13 +87,16 @@ export default {
         z-index: 0;
         width: 6.6rem;
         height: 4.3rem;
-        background: #000
+        background: #000;
       }
       p {
-        margin: .2rem 0 0;
+        margin: 0.2rem 0 0;
         line-height: 1.5;
       }
     }
+  }
+  .author {
+    margin-top: .2rem;
   }
 }
 </style>

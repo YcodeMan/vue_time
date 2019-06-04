@@ -1,27 +1,27 @@
 <template>
-  <div id="newsPage">
-    <NewsPageTop/>
+  <div class="hotMovie">
+    <HotMovieContent/>
   </div>
 </template>
 
 <script>
-import NewsPageTop from "@components/newsPage/newsPageTop";
+import HotMovieContent from "@components/hotMovie/hotMovie";
 import { Indicator } from "mint-ui";
 export default {
-  name: "newsPage",
+  name: "hotMovie",
   created() {
     Indicator.open({
       text: "加载中...",
       spinnerType: "snake"
     });
   },
-  mounted() {
-    this.$nextTick(() => {
-         Indicator.close();
-    });
+  mounted () {
+     this.$nextTick(() => {
+         Indicator.close()
+     })
   },
   components: {
-    NewsPageTop
+    HotMovieContent
   }
 };
 </script>

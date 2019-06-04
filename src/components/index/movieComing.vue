@@ -1,11 +1,11 @@
 <template>
   <div class="movieComing">
-    <h2>
+    <v-touch tag='h2' @tap='toHotMovie()'>
       <a>
         <i>&gt;</i>
         <b>正在热映({{movieListMsg.length}}部)</b>
       </a>
-    </h2>
+    </v-touch>
     <ul>
       <v-touch tag="li"  @tap="ToMovieDetails(item.id)" v-for="(item,index) in someMovie " :key="index">
         <a>
@@ -33,9 +33,14 @@
 <script>
 import Vuex from "vuex";
 import {formatDate} from '@filters/formatDate'
+
 export default {
   name: "movieComing",
   created() {
+
+    
+    
+
     // 格式化时间请求新数据
     var date = formatDate(new Date() , 'yyyyMMddhhmmss')
 
@@ -67,11 +72,6 @@ export default {
     }
   
   },
-  data() {
-    return {
-      _city: this.city
-    };
-  },
   computed: {
     ...Vuex.mapState({
       someMovie: state => state.indexMovie.someMovie,
@@ -93,7 +93,16 @@ export default {
 
       this.$router.push({
         name: 'movieDetails',
+        path: 'movieDetails',
         params:{movieId:id, locationId: this.city.id, t: date}
+      })
+    },
+
+    // 跳转区热门电影
+    toHotMovie() {
+      this.$router.push({
+        name: 'hotMovie',
+        path: 'hotMovie',
       })
     }
   }

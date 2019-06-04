@@ -3,9 +3,14 @@ import App from './App.vue'
 import router from './routers/index'
 import store from './store/index'
 import VueTouch from 'vue-touch'
+import MintUI from 'mint-ui'
+import 'mint-ui/lib/style.css'
 
 // 使用vue-touch
 Vue.use(VueTouch, {name: 'v-touch'})
+
+// 使用MintUI
+Vue.use(MintUI)
 
 Vue.config.productionTip = false
 

@@ -7,6 +7,8 @@ import buyTickets from './buyTickets'
 import shopMall from './shopMall'
 import find from './find'
 import mine from './mine'
+import cityList from './cityList'
+import hotMovie from './hotMovie'
 
 Vue.use(Router)
 
@@ -22,6 +24,8 @@ export default new Router({
     buyTickets,
     shopMall,
     find,
-    mine
+    mine,
+    cityList,
+    hotMovie
   ]
 })

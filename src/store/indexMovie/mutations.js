@@ -39,6 +39,12 @@ export default {
     // 影片短评论
     mutationsHotLongComment(state, param) {
         state.hotLongComment = param;
+    },
+    
+    // 设置点击的热点评论id
+    mutationsSetHotId(state, param) { 
+        state.HotPointId = param
+        window.localStorage.setItem('HotPointId', JSON.stringify(param))
     }
 
 }

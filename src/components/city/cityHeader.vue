@@ -1,7 +1,7 @@
 <template>
-    <div class="cityhaeder">
+    <div class="cityHeader">
         <div class="choosecity">
-            <a href="#"></a>
+            <a href="#">&lt;</a>
             <div class="city">
                 <h2>选择城市</h2>
             </div>
@@ -18,14 +18,14 @@
 
 <script>
 export default {
-    name: "cityHeader"
+    name: "CityHeader"
 }
 </script>
 
 
 
  <style scoped>
-    .cityheader{
+    .cityHeader{
         width: 100%;
         
     }
@@ -40,6 +40,7 @@ export default {
         font-size: 0.5rem;
         line-height: 1.1rem;
         padding: 0 0.35rem;
+        color: #fff;
     }
     .city{
         display: flex;
@@ -69,7 +70,7 @@ export default {
         display: block;
         width: 0.8rem;
         height: 0.8rem;
-        background: url(./images/search_ico_01.png) no-repeat 5px 2px;
+        background: url(/images/search_ico_01.png) no-repeat 25px 20px;
     }
     .serch-input input{
         margin-left: 0.2rem;

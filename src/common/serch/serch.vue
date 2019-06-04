@@ -1,9 +1,12 @@
 <template>
     <div class="serch">
-        <div class="city">
-            <b>北京</b>
-            <i></i>
-        </div>
+        <v-touch @tap="toCityList()">
+            <div class="city">
+                <b>北京</b>
+                <i></i>
+            </div>
+        </v-touch>
+       
         <div class="serch-input">
             <span></span>
             <input type="text" placeholder="影片/影院/影人,任你搜索">
@@ -13,7 +16,15 @@
 
 <script>
 export default {
-    name: "serch"
+    name: "serch",
+    methods: {
+        toCityList(){
+           this.$router.push({
+               name: "cityList",
+               path: "/cityList"
+           })
+        }
+    },
 }
 </script>
 

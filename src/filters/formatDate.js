@@ -1,4 +1,4 @@
-export function formatDate(date, fmt) {
+const formatDate = function (date, fmt) {
     let yearRegExp = /y+/
     if (yearRegExp.test(fmt)) {
         var year = yearRegExp.exec(fmt)[0],
@@ -22,3 +22,5 @@ export function formatDate(date, fmt) {
     }
     return fmt
 } 
+
+export default  formatDate;

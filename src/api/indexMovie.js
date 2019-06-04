@@ -15,11 +15,11 @@ export const hotPoints = (date) => http(
     {t: date}
 )
 
-// 广告热点
-export const hotPointsDetails = () => http(
+// 广告热点详情
+export const hotPointsDetails = ({id, t}) => http(
     'get',
     '/Service/callback.mi/News/Detail.api',
-    {newsId:1591621, t:201962171332872}
+    {newsId:id, t}
 )
 
 

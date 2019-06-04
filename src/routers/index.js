@@ -4,6 +4,7 @@ import indexMovie from './indexMovie'
 import movieDetails from './movieDetails'
 import newsPage from './newsPage'
 import hotMovie from './hotMovie'
+import movieComing from './movieComing'
 
 Vue.use(Router)
 
@@ -16,6 +17,7 @@ export default new Router({
     indexMovie,
     movieDetails,
     newsPage,
-    hotMovie
+    hotMovie,
+    movieComing
   ]
 })

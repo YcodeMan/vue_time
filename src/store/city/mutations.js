@@ -7,11 +7,15 @@ export default {
             'cityList',
               JSON.stringify(cityListObject)
             )
+         
             // 默认地址为北京
         state.city = {id: '290', name: '北京'}
         window.localStorage.setItem('city', JSON.stringify(state.city))
-    },
 
+            //热门城市截取所有城市前八条数据
+        state.warmCity = state.cityList.slice(0, 8)
+        window.sessionStorage.setItem('warmCity', JSON.stringify(state.warmCity))
+    },
 
     mutationsCityList(state,params){
         
@@ -54,11 +58,24 @@ export default {
                return -1;
            }
        })
-        //热门城市
+        
         //更改state中的数据
         state.cityList = cityList;
         window.sessionStorage.setItem("cityList",JSON.stringify(cityList));
         state.cityLoading = false;
 
+    },
+
+    mutationsCityToggle(state,params){
+        state.city.id = params.id;
+        state.city.name = params.n;
+        window.sessionStorage.setItem("name",params.n);
+        window.sessionStorage.setItem("id",params.id)
+    },
+
+    //城市定位
+    mutationsCityGetLocation(state,params){
+        state.getLocation = params;
+        window.sessionStorage.setItem("getLocation",JSON.stringify(params))
     },
 }

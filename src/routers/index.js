@@ -9,6 +9,7 @@ import find from './find'
 import mine from './mine'
 import cityList from './cityList'
 import hotMovie from './hotMovie'
+import movieComing from './movieComing'
 
 Vue.use(Router)
 
@@ -26,6 +27,7 @@ export default new Router({
     find,
     mine,
     cityList,
-    hotMovie
+    hotMovie,
+    movieComing
   ]
 })

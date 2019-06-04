@@ -27,6 +27,7 @@ export default {
 
     // 影片详情页
     mutationsDetails(state, params) {
+        console.log(params)
         state.detail = params.data;
         state.movieId = params.movieId;
     },

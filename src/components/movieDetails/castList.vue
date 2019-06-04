@@ -72,7 +72,7 @@ export default {
     director: state => state.indexMovie.detail.director,
     personCount: state => state.indexMovie.detail.personCount,
     }),
-    direct: this.director?this.director:{}
+    //direct: director?this.director:{}
   },
 };
 </script>

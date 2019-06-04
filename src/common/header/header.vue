@@ -5,7 +5,7 @@
         <v-touch tag='a' :class="isActive==item.title?'curr':''" v-on:tap='addClass(item)'>
           <i class="logo_mtime" v-if="item.type=='i-i'"></i>
           <span v-if="item.type=='s'">{{item.title}}</span>
-          <em class="new" v-if="item=='商城'">NEW</em>
+          <em class="new" v-if="item.title=='商城'">NEW</em>
           <i class="ico_my" v-if="item.type=='i-m'"></i>
         </v-touch>
       </router-link>

@@ -4,37 +4,37 @@
       <!--头部-->
       <DetailsHeader/>
       <!--影片上映信息-->
-      <DetailsInfo/>
+      <!-- <DetailsInfo/> -->
       <aside class="cin_line">
         <p></p>
         <p></p>
       </aside>
       <!--剧情-->
-      <Plot/>
+      <!-- <Plot/> -->
       <aside class="cin_line">
         <p></p>
         <p></p>
       </aside>
       <!--演员-->
-      <CastList/>
+      <!-- <CastList/> -->
       <aside class="cin_line">
         <p></p>
         <p></p>
       </aside>
       <!--图片-->
-      <Pic/>
+      <!-- <Pic/> -->
       <aside class="cin_line">
         <p></p>
         <p></p>
       </aside>
       <!--长影评-->
-      <LongComment/>
+      <!-- <LongComment/> -->
       <aside class="cin_line">
         <p></p>
         <p></p>
       </aside>
       <!--短影评-->
-      <ShortComment/>
+      <!-- <ShortComment/> -->
     </div>
   </div>
 
@@ -50,7 +50,6 @@ import CastList from "./castList";
 import Pic from "./pic";
 import LongComment from "./longComment";
 import ShortComment from "./shortComment";
-import {formatDate} from '@filters/formatDate'
 export default {
   name: "MovieDetails",
   components: {
@@ -65,6 +64,12 @@ export default {
   methods: {
     ...Vuex.mapActions({
       actionsDetails: "indexMovie/actionsDetails"
+    })
+  },
+  computed: {
+    ...Vuex.mapState({
+      cityId: state => state.city.cityId,
+      id: state => state.city.cityId,
     })
   },
   created() {

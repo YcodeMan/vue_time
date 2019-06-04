@@ -14,6 +14,7 @@ export default {
 
     // 影片详情页
     detail: {},
+    movieId:"",
     // 影片短评论
     shortComment: {},
     // 影片热门长评论

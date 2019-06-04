@@ -35,9 +35,7 @@ export default {
     width: 100%;
     height: 1.2rem;
     background-color: #f6f6f6;
-}
-.serch div{
-    float: left;          
+    display: flex;
 }
 .city{
     margin: 0.4rem 0.4rem;
@@ -50,7 +48,7 @@ export default {
     background: url(../../../public/images/i_city.png) no-repeat -3px 5px;
 }
 .city b{
-    font-size: 1.4em;
+    font-size: .384rem;
 }
 .serch-input{
     display: flex;

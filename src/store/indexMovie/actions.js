@@ -34,6 +34,7 @@ export default {
             data,
             movieId : param.movieId
         }
+        console.log(data)
         commit("mutationsDetails", params);
     },
 

@@ -2,7 +2,7 @@
     <div class="serch">
         <v-touch @tap="toCityList()">
             <div class="city">
-                <b>北京</b>
+                <b>{{city.name}}</b>
                 <i></i>
             </div>
         </v-touch>
@@ -15,8 +15,14 @@
 </template>
 
 <script>
+import Vuex from 'vuex'
 export default {
     name: "serch",
+    computed: {
+        ...Vuex.mapState({
+            city: state => state.city.city
+        })
+    },
     methods: {
         toCityList(){
            this.$router.push({

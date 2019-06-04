@@ -26,7 +26,7 @@
         </a>
       </v-touch>
     </ul>
-    <v-touch tag='h2' @tap='ToMovieComing()'>
+    <v-touch tag="h2" @tap="ToMovieComing()">
       <a>
         <i>&gt;</i>
         <b>即将上映({{totalComingMovieNum}})</b>
@@ -41,6 +41,11 @@ import { formatDate } from "@filters/formatDate";
 
 export default {
   name: "movieComing",
+  date() {
+    return {
+      id: this.city.id
+    }
+  },
   created() {
     // 格式化时间请求新数据
     var date = formatDate(new Date(), "yyyyMMddhhmmss");
@@ -71,8 +76,20 @@ export default {
         this.movieComing({
           date,
           cityId: this.city.id
-        });
+        })
       })();
+    }
+  },
+  activated () {
+
+    // 地址改变时重新请求数据
+    if (this.id != this.city.id) {
+       var date = formatDate(new Date(), "yyyyMMddhhmmss");
+       // 请求电影数据
+        this.movieComing({
+          date,
+          cityId: this.city.id
+        })
     }
   },
   computed: {
@@ -111,8 +128,8 @@ export default {
     // 跳转正在上映
     ToMovieComing() {
       this.$router.push({
-        name: 'movieComing'
-      })
+        name: "movieComing"
+      });
     }
   }
 };

@@ -5,6 +5,7 @@ import movieDetails from './movieDetails'
 import newsPage from './newsPage'
 import cityList from './cityList'
 import hotMovie from './hotMovie'
+import movieComing from './movieComing'
 
 Vue.use(Router)
 
@@ -18,6 +19,7 @@ export default new Router({
     movieDetails,
     newsPage,
     cityList,
-    hotMovie
+    hotMovie,
+    movieComing
   ]
 })

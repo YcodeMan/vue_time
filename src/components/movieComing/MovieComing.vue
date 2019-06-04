@@ -1,5 +1,7 @@
 <template>
-    <div class="MovieComing"></div>
+    <div class="MovieComing">
+        
+    </div>
 </template>
 
 <script>

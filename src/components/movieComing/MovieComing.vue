@@ -32,6 +32,8 @@
                 </ul>
             </div>
         </div>
+        <!-- 广告轮播图 -->
+        <Swiper/>
         <!-- ---------------即将上映部分--------------- -->
         <div class="commovie">
             <h2 class="title"><b>即将上映</b> <span>(56部)</span></h2>
@@ -49,7 +51,6 @@
                                         <img class="img_box" src="/images/6.jfif">
                                     </a>
                                 </div>
-    
                                 <div class="upmovie_txt">
                                     <dl>
                                         <dt><a href="#"><b>无所不能</b></a></dt>
@@ -77,9 +78,13 @@
 </template>
 
 <script>
-export default {
-    name: 'MovieComing'
-}
+    import Swiper from "@components/swiper/swiper.vue"
+    export default {
+        name: 'MovieComing',
+        components: {
+            Swiper,
+        }
+    }
 </script>
 
 
@@ -199,6 +204,7 @@ export default {
         color: #333;
     }
     .upmovie_txt p{
+        font-size: 0.28rem;
         margin: 0.15rem 0.2rem;
         width: 4.8rem;
     }

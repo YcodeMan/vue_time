@@ -1,5 +1,4 @@
 export default {
-    detail: '',
     // 保存正在上映的电影数据
     movieListMsg: JSON.parse(window.sessionStorage.getItem('movieListMsg')) || [],
     // 保存预售的电影数量
@@ -11,5 +10,12 @@ export default {
     HotPoints: JSON.parse(window.sessionStorage.getItem('HotPoints')) || [],
 
     // 热点评论详情数据
-    HotPointsDetails: {}
+    HotPointsDetails: {},
+
+    // 影片详情页
+    detail: {},
+    // 影片短评论
+    shortComment: {},
+    // 影片热门长评论
+    hotLongComment: {},
 }

@@ -16,12 +16,34 @@ export const advComing = ()=>http(
 )
 
 // 影片详情
-export const detail = ()=>http(
+export const detail = ({movieId, locationId, t})=>http(
     'get',
     'Service/callback.mi/movie/Detail.api',
     {
+        movieId: movieId,
+        locationId: locationId,
+        t: t
+    }
+)
+
+// 影片短评论
+export const shortComment = ()=>http(
+    'get',
+    'Service/callback.mi/Showtime/MovieComments.api',
+    {
         movieId: 213190,
-        locationId:292,
+        pageIndex:1,
+        t:2019611910179287
+    }
+)
+
+// 影片热门长评论
+export const hotLongComment = ()=>http(
+    'get',
+    'Service/callback.mi/Movie/HotLongComments.api',
+    {
+        movieId: 213190,
+        pageIndex:1,
         t:2019611910179287
     }
 )

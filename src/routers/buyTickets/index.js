@@ -1,7 +1,7 @@
 export default {
-    path: '/index',
-    name: 'index',
-    component: () => import('@views/indexMovie/indexMovie'),
+    path: '/buyTickets',
+    name: 'buyTickets',
+    component: () => import('@views/buyTickets/buyTickets'),
     meta: {
         headerFlag: true,
         serchFlag: true,

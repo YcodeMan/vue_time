@@ -1,19 +1,15 @@
 <template>
     <div>
-        Buy Tickets
+        shopping
     </div>
 </template>
 
 <script>
 export default {
-    name: 'BuyTickets',
-    components: {
-    }
-
+    name: 'ShopMall',
 }
 </script>
 
 <style lang="scss" scoped>
 
 </style>
-

@@ -15,15 +15,15 @@
               <li>
                 <a href="#!/person/905046/" class="picbox">
                   <img
-                    src=""
+                    :src="direct.directorImg"
                     class="m_img"
                   >
                 </a>
                 <a href="#!/person/905046/">
-                  <h3>{{director.directorName}}</h3>
+                  <h3>{{direct.directorName}}</h3>
                 </a>
                 <a href="#!/person/905046/">
-                  <p>{{director.directorNameEn}}</p>
+                  <p>{{direct.directorNameEn}}</p>
                 </a>
               </li>
             </ul>
@@ -33,47 +33,26 @@
           <dt class="table">主要演员</dt>
           <dd>
             <ul class="table">
-              <li class>
+              <li v-for="item in actorList?actorList:''" :key="item.id"  class="td">
                 <a href="#!/person/922348/" class="picbox">
                   <img
-                    src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg31.mtime.cn%2Fph%2F2016%2F08%2F06%2F111744.53726121_1280X720X2.jpg&amp;width=170&amp;height=170&amp;clipType="
+                    :src="item.actorImg"
                     class="m_img"
                   >
                 </a>
                 <a href="#!/person/922348/">
-                  <h3>维拉·法梅加</h3>
+                  <h3>{{item.actor}}</h3>
                 </a>
                 <a href="#!/person/922348/">
-                  <p>Vera Farmiga</p>
+                  <p>{{item.actorEn}}</p>
                 </a>
                 <a href="#!/person/922348/" class="picbox small">
                   <img
-                    src="//imgproxy.mtime.cn/get.ashx?uri=&amp;width=80&amp;height=80&amp;clipType="
+                    :src='item.roleImg'
                     class="m_img"
                   >
                 </a>
-                <p>饰:艾玛</p>
-              </li>
-              <li class="td">
-                <a href="#!/person/915217/" class="picbox">
-                  <img
-                    src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fph%2F2017%2F02%2F21%2F150122.16220526_1280X720X2.jpg&amp;width=170&amp;height=170&amp;clipType="
-                    class="m_img"
-                  >
-                </a>
-                <a href="#!/person/915217/">
-                  <h3>凯尔·钱德勒</h3>
-                </a>
-                <a href="#!/person/915217/">
-                  <p>Kyle Chandler</p>
-                </a>
-                <a href="#!/person/915217/" class="picbox small">
-                  <img
-                    src="//imgproxy.mtime.cn/get.ashx?uri=&amp;width=80&amp;height=80&amp;clipType="
-                    class="m_img"
-                  >
-                </a>
-                <p>饰:马克</p>
+                <p>饰:{{item.roleName}}</p>
               </li>
             </ul>
           </dd>
@@ -93,6 +72,7 @@ export default {
     director: state => state.indexMovie.detail.director,
     personCount: state => state.indexMovie.detail.personCount,
     }),
+    direct: this.director?this.director:{}
   },
 };
 </script>

@@ -3,11 +3,11 @@
     <section class="m_cinema">
       <div
         class="m_bg_cinema"
-        style="background-image:url(//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F23%2F095633.44711442_1280X720X2.jpg&amp;width=420&amp;height=280&amp;clipType=);"
+        :style="'background-image:url('+data.image+');'"
       >
         <div
           class="m_bg_img"
-          style="background-image:url(//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F23%2F095633.44711442_1280X720X2.jpg&amp;width=420&amp;height=280&amp;clipType=);"
+          :style="'background-image:url('+data.image+');'"
         ></div>
         <p></p>
       </div>
@@ -19,7 +19,7 @@
         data-trailer-num="3"
         id="trailerButton"
       >
-        <a :title="detail.titleCn">
+        <a :title="data.titleCn">
           <img
             src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F23%2F095633.44711442_1280X720X2.jpg&amp;width=210&amp;height=316&amp;clipType=4"
             class="m_img"
@@ -33,25 +33,25 @@
       </div>
       <div class="cinema_txt">
         <header>
-          <h2>{{detail.titleCn}}</h2>
-          <p>{{detail.titleEn}}</p>
+          <h2>{{data.titleCn}}</h2>
+          <p>{{data.titleEn}}</p>
           <b class="baidu_score">
             <em class="m_score">
-              <i>{{detail.rating}}</i>
+              <i>{{data.rating}}</i>
             </em>
           </b>
         </header>
         <ul>
           <li>
             <p>
-              <b>有彩蛋</b> - {{detail.runTime}}
+              <b>有彩蛋</b> - {{data.runTime}}
             </p>
           </li>
           <li>
-            <p>{{toString(detail.type)}}</p>
+            <p>{{toString(data.type)}}</p>
           </li>
           <li>
-            <p>{{formatTime(detail.release)}}</p>
+            <p>{{formatTime(data.release)}}</p>
           </li>
         </ul>
         <aside class="m_cin_btn">
@@ -71,7 +71,7 @@
     </article>
     <ul class="cin_otherinfo">
       <li>
-        <b>{{detail.commonSpecial}}</b>
+        <b>{{data.commonSpecial}}</b>
       </li>
       <li id="ticketButton">
         <a class="m_btn_orange">
@@ -90,6 +90,9 @@ export default {
     ...Vuex.mapState({
       detail: state => state.indexMovie.detail,
     }),
+    data: function() {
+      return this.detail?this.detail:{};
+    }
   },
   methods: {
     formatTime(val){
@@ -103,8 +106,9 @@ export default {
     toString(data) { 
       let str='';
       if(data){
-        for(var i=0;i<data.length;i++){
-          if(i!=data.length-1){
+        var len = data.length>3?3:data.length;
+        for(var i=0;i<len;i++){
+          if(i!=len-1){
             str += data[i]+' / ';
           } else{
             str += data[i]

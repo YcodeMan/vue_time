@@ -1,7 +1,7 @@
 export default {
-    path: '/index',
-    name: 'index',
-    component: () => import('@views/indexMovie/indexMovie'),
+    path: '/shopMall',
+    name: 'shopMall',
+    component: () => import('@views/shopMall/shopMall'),
     meta: {
         headerFlag: true,
         serchFlag: true,

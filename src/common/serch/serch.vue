@@ -43,6 +43,8 @@ export default {
     font-size: 1.4em;
 }
 .serch-input{
+    display: flex;
+    align-items: center;
     width: 5.2rem;
     height: 0.8rem;
     border: 1px solid grey;
@@ -54,15 +56,14 @@ export default {
     width: 0.8rem;
     height: 0.8rem;
     background: url(../../../public/images/search_ico_01.png) no-repeat 30px 20px;
-    float: left;
+  
 }
 .serch-input input{
     background-color: #f6f6f6;
     margin-left: 0.2rem;
     width: 4rem;
-    height: 0.789rem;
+    height: 0.72rem;
     display: block;
-    float: left;
     border: none;
     font-size: 1em;
 }

@@ -1,4 +1,8 @@
-import { detail } from '@api/comingSale';
+import { 
+    detail,
+    shortComment,
+    hotLongComment
+} from '@api/comingSale';
 import {
     MoviehotShow,
     hotPoints,
@@ -22,10 +26,26 @@ export default {
         let data = await hotPointsDetails()
         commit('mutationsHotPointsDetails', data)
     },
+
     //请求电影详情
-    async actionsDetails({ commit }) {
-        let data = await detail();
-        console.log(data)
-        commit("mutationsDetails", data);
-    }
+    async actionsDetails({ commit }, param) {
+        let data = await detail(param);
+        let params = {
+            data,
+            movieId : param.movieId
+        }
+        commit("mutationsDetails", params);
+    },
+
+    //请求电影短评论
+    async actionsShortComment({ commit }) {
+        let data = await shortComment();
+        commit("mutationsShortComment", data);
+    },
+
+    //请求电影热门长评论
+    async actionsHotLongComment({ commit }) {
+        let data = await hotLongComment();
+        commit("mutationsHotLongComment", data);
+    },
 }

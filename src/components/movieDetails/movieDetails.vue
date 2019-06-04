@@ -50,6 +50,7 @@ import CastList from "./castList";
 import Pic from "./pic";
 import LongComment from "./longComment";
 import ShortComment from "./shortComment";
+import {formatDate} from '@filters/formatDate'
 export default {
   name: "MovieDetails",
   components: {
@@ -67,7 +68,16 @@ export default {
     })
   },
   created() {
-    this.actionsDetails();
+    //var params = this.$route.params;
+    // if (Object.keys(params).length === 0) {
+    //   var date = formatDate(new Date() , 'yyyyMMddhhmmss');
+    //   params = {
+    //     movieId: 213190, 
+    //     locationId: 366, 
+    //     t: date
+    //   }
+    // }
+    this.actionsDetails(this.$route.params);
   },
 };
 </script>

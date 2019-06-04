@@ -7,7 +7,7 @@
       </a>
     </h2>
     <ul>
-      <v-touch tag="li" @top='ToMovieDetails' v-for="(item,index) in someMovie " :key="index">
+      <v-touch tag="li"  @tap="ToMovieDetails(item.id)" v-for="(item,index) in someMovie " :key="index">
         <a>
           <div>
             <img :src="item.img">
@@ -65,8 +65,6 @@ export default {
       })()  
     
     }
-
-
   
   },
   data() {
@@ -89,7 +87,15 @@ export default {
       movieComing: "indexMovie/actionsMovieComing",
 
       getHotCity: 'city/actionsHotCity'
-    })
+    }),
+    ToMovieDetails(id) {
+     var date = formatDate(new Date() , 'yyyyMMddhhmmss')
+
+      this.$router.push({
+        name: 'movieDetails',
+        params:{movieId:id, locationId: this.city.id, t: date}
+      })
+    }
   }
 };
 </script>

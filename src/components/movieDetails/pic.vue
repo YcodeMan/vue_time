@@ -3,44 +3,17 @@
           <h2>
             <a href="#!/movie/213190/posters_and_images/">
               <span class="i_tnext"></span>
-              <b>127张图片</b>
+              <b>{{imageCount}}张图片</b>
             </a>
           </h2>
           <div class="showpic">
             <ul class="table">
-              <li>
+              <li v-for="item in images" :key="item.id">
                 <a href="#!/movie/213190/posters_and_images/">
                   <img
                     class="m_img"
                     alt="哥斯拉2：怪兽之王剧照"
-                    src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fpi%2F2019%2F03%2F18%2F101018.90431809_1280X720X2.jpg&amp;width=132&amp;height=132&amp;clipType="
-                  >
-                </a>
-              </li>
-              <li>
-                <a href="#!/movie/213190/posters_and_images/">
-                  <img
-                    class="m_img"
-                    alt="哥斯拉2：怪兽之王剧照"
-                    src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fpi%2F2019%2F03%2F18%2F101018.65952614_1280X720X2.jpg&amp;width=132&amp;height=132&amp;clipType="
-                  >
-                </a>
-              </li>
-              <li>
-                <a href="#!/movie/213190/posters_and_images/">
-                  <img
-                    class="m_img"
-                    alt="哥斯拉2：怪兽之王剧照"
-                    src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fpi%2F2019%2F03%2F18%2F101019.26447822_1280X720X2.jpg&amp;width=132&amp;height=132&amp;clipType="
-                  >
-                </a>
-              </li>
-              <li>
-                <a href="#!/movie/213190/posters_and_images/">
-                  <img
-                    class="m_img"
-                    alt="哥斯拉2：怪兽之王剧照"
-                    src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fpi%2F2019%2F03%2F18%2F101019.49779468_1280X720X2.jpg&amp;width=132&amp;height=132&amp;clipType="
+                    :src="item"
                   >
                 </a>
               </li>
@@ -50,8 +23,15 @@
 </template>
 
 <script>
+import Vuex from 'vuex';
 export default {
-    name: 'Pic'
+    name: 'Pic',
+    computed: {
+      ...Vuex.mapState({
+        imageCount: state => state.indexMovie.detail.imageCount,
+        images: state => state.indexMovie.detail.images,
+      }),
+    }
 }
 </script>
 
@@ -89,7 +69,7 @@ export default {
 }
 .m_img {
   border: 1px solid #ddd;
+  height: 100%
 }
-
 
 </style>

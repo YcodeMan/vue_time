@@ -1,33 +1,31 @@
 <template>
   <div class="hotMovieContent">
-    <li>
+    <v-touch tag='li' @top='getMovieDetails(item.id)' v-for='(item, index) in movieList ' :key='index'>
       <div class="hotPoint">
         <div class="movie_pic">
           <a href>
             <i class="i_hot"></i>
-            <img
-              src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F23%2F095633.44711442_1280X720X2.jpg&amp;width=130&amp;height=195&amp;clipType=4"
-            >
+            <img :src='item.img'>
           </a>
         </div>
         <div class="movie_txt">
           <dl>
             <dt>
               <a href="#!/movie/213190/">
-                <b>哥斯拉2：怪兽之王</b>
-                <em class="m_score">
-                  <i>7.6</i>
+                <b>{{item.tCn}}</b>
+                <em v-show="(item.r > 0 ? true : false)">
+                  <i>{{item.r > 0 ? item.r : ''}}</i>
                 </em>
               </a>
             </dt>
             <dd>
               <p class="movie_tip">
                 <i class="i_block i_dot"></i>
-                <span>哥斯拉终极对决基多拉争霸地球</span>
+                <span>{{item.commonSpecial}}</span>
               </p>
-              <div class="mtool">
-                <i class="i_cine_05">3d</i>
-                <i class="i_cine_15">中国聚目</i>
+              <div class="mtool" >
+                <i class="i_cine_05" 
+                  v-for='(data, dataIndex) in item.versions' :key='dataIndex'>{{data.version}}</i>
               </div>
             </dd>
           </dl>
@@ -39,24 +37,37 @@
           </div>
         </div>
       </div>
-    </li>
+    </v-touch>
   </div>
 </template>
 
 <script>
 import Vuex from 'vuex'
+import formatDate from '@filters/formatDate'
 export default {
   name: "hotMovieContent",
   created () {
-      
+    console.log(this.movieList)
   },
   computed: {
-      
+      ...Vuex.mapState({
+        movieList: state => state.indexMovie.movieListMsg,
+        city: state => state.city.city
+      })
   },
   methods: {
-      ...Vuex.mapActions({
-          
-      })
+      getMovieDetails(id) {
+
+        this.router.push({
+          name: 'movieDetails',
+          path: '/movieDetails',
+          param: {
+            movieId:id,
+            locationId: this.city.id,
+            t: formatDate(new Date(), 'yyyyMMddhhmmss')
+          }
+        })
+      }
   }
 };
 </script>
@@ -72,6 +83,8 @@ export default {
         margin-right: 0.4rem;
         img {
           display: inline-block;
+          width: 1.6rem;
+          height: 2.4rem;
         }
       }
     }
@@ -96,6 +109,9 @@ export default {
             line-height: 0.34rem;
             text-align: center;
           }
+          .m_scoreHide {
+            display: none;
+          }
         }
         dd {
           padding-top: 0.15rem;
@@ -108,19 +124,21 @@ export default {
               vertical-align: middle;
               line-height: 0.4rem;
               white-space: nowrap;
+              font-size: .28rem;
               text-overflow: ellipsis;
               overflow: hidden;
             }
           }
           .mtool {
             overflow: hidden;
+            margin-top: .1rem;
             i {
               display: inline-block;
               border: 1px solid #659d0e;
               color: #659d0e;
               padding: 0.04rem 0.04rem;
               margin: 0.1rem 0.04rem;
-              font-size: 0.18rem;
+              font-size: 0.2rem;
             }
           }
         }
@@ -129,6 +147,7 @@ export default {
     .msg {
         display: flex;
         justify-content: space-between;
+        margin-top: .2rem;
       b {
         display: inline-block;
         font-size: 0.28rem;
@@ -140,10 +159,10 @@ export default {
       .buyBtn {
         display: inline-block;
         text-align: center;
-        margin: .04rem .3rem;
+        margin:  .04rem .4rem;
         width: 1rem;
         height: .45rem;
-        line-height: .45rem;
+        line-height: .4rem;
         font-size: .25rem;
         border-radius: .4rem;
         background: #ff8600;

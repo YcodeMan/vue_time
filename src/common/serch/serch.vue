@@ -25,10 +25,9 @@ export default {
            })
         }
     },
+    
 }
 </script>
-
-
 
 
 <style scoped>
@@ -67,7 +66,6 @@ export default {
     width: 0.8rem;
     height: 0.8rem;
     background: url(../../../public/images/search_ico_01.png) no-repeat 30px 20px;
-  
 }
 .serch-input input{
     background-color: #f6f6f6;

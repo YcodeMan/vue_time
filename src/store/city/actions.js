@@ -10,4 +10,5 @@ export default {
         let data = await hotCity(param)
         commit('mutationssHotCity', data.p)
     },
+   
 }

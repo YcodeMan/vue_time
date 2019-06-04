@@ -16,14 +16,7 @@
             </dt>
             <dd>
                 <ul>
-                    <li><a href="#">上海</a></li>
-                    <li><a href="#">深圳</a></li>
-                    <li><a href="#">北京</a></li>
-                    <li><a href="#">广州</a></li>
-                    <li><a href="#">上海</a></li>
-                    <li><a href="#">深圳</a></li>
-                    <li><a href="#">北京</a></li>
-                    <li><a href="#">广州</a></li>
+                    <li v-for="(item,index) in warmCity" :key="index"><a href="#">{{item.n}}</a></li>
                 </ul>
             </dd>
         </dl>
@@ -31,7 +24,9 @@
         <div class="city" v-for="(item,index) in cityList" :key="index">
             <p>{{item.index}}</p>
             <ul>
-                <li  v-for="(data,idx) in item.list" :key="idx"><a href="#">{{data.n}}</a></li>
+                <v-touch  v-for="(data,idx) in item.list" :key="idx"
+                tag="li" @tap="handleToggleCity(data)"
+                ><a href="#">{{data.n}}</a></v-touch>
             </ul>
         </div>
     </div>
@@ -46,13 +41,20 @@ export default {
     },
     methods: {
         ...Vuex.mapMutations({
-            mutationsCityList: "city/mutationsCityList"
-        })
+            mutationsCityList: "city/mutationsCityList",
+            mutationsCityToggle: "city/mutationsCityToggle"
+        }),
+        handleToggleCity(params){
+            this.$router.push("/indexMovie")
+            this.mutationsCityToggle(params)
+        }
     },
     computed: {
         ...Vuex.mapState({
             city: state => state.city.city,
-            cityList: state => state.city.cityList
+            cityList: state => state.city.cityList,
+            warmCity: state => state.city.warmCity,
+            getLocation: state => state.city.getLocation,
         })
     },
 }

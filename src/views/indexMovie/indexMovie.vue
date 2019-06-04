@@ -37,5 +37,5 @@ export default {
     Header,
     todayHot
   }
-};
+}
 </script>

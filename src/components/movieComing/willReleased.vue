@@ -6,12 +6,12 @@
         <b>即将上映</b>
         <span>({{moviecomings.length}})</span>
       </h2>
-      <div class="commovielist">
+      <div class="commovielist" v-for="(val,index) in movieComingMonth" :key='index'>
         <time class="month">
-          <span>6月</span>
+          <span>{{val.Month}}</span>
         </time>
         <ul>
-          <li v-for="(item, index) in moviecomings" :key='index'>
+          <li v-for="(item, index) in val.Movies" :key='index'>
             <div class="table_movielist">
               <div class="day">
                 <time>
@@ -63,7 +63,9 @@ export default {
   name: "WillReleased",
   computed: {
     ...Vuex.mapState({
-      moviecomings: state => state.movieComing.moviecomings
+      moviecomings: state => state.movieComing.moviecomings,
+      movieComingMonth: state => state.movieComing.movieComingMonth
+
     })
   },
   filters: {

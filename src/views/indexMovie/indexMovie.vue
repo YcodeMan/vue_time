@@ -1,11 +1,13 @@
 <template>
   <div class="IndexMovie">
     <movieComing/>
+    <Swiper/>
     <todayHot/>
   </div>
 </template>
 
 <script>
+import Swiper from "@components/swiper/swiper.vue"
 import movieComing from "@components/index/movieComing";
 import todayHot from "@components/index/todayHot";
 import { Indicator } from "mint-ui";
@@ -29,7 +31,8 @@ export default {
   },
   components: {
     movieComing,
-    todayHot
+    todayHot,
+    Swiper
   }
 };
 </script>

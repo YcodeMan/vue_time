@@ -1,11 +1,14 @@
 <template>
-    <div>
+    <div class="BuyTickets">
+     
         Buy Tickets
     </div>
 </template>
 
 <script>
+
 export default {
+
     name: 'BuyTickets',
     components: {
     }
@@ -13,7 +16,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
 

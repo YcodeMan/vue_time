@@ -26,10 +26,10 @@ export default {
     },
 
     // 影片详情页
-    mutationsDetails(state, params) {
-        console.log(params)
-        state.detail = params.data;
-        state.movieId = params.movieId;
+    mutationsDetails(state, {data,movieId}) {
+        state.detail = data;
+        state.movieId = movieId;
+        window.sessionStorage.setItem('movieId', JSON.stringify(movieId))
     },
 
     // 影片短评论
@@ -37,9 +37,12 @@ export default {
         state.shortComment = param;
     },
 
-    // 影片短评论
+    // 影片长评论
     mutationsHotLongComment(state, param) {
-        state.hotLongComment = param;
+        state.hotLongComment.count = param.totalCount;
+        state.hotLongComment.comment = param.comments[0];
+        state.longComment = param.comments;
+
     },
     
     // 设置点击的热点评论id

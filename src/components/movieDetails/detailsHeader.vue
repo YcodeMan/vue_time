@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="h_warp">
-      <a href="javascript:void(0);" class="h_back"></a>
+      <v-touch tag='a' v-on:tap='back' href="javascript:void(0);" class="h_back"></v-touch>
       <div class="h_like">
         <a href="javascript:void(0);" id="favButton" class="h_i_collection"></a>
         <a href="javascript:void(0);" id="shareButton" class="h_i_share"></a>
@@ -12,7 +12,12 @@
 
 <script>
 export default {
-	name: 'DetailsHeader'
+  name: 'DetailsHeader',
+  methods: {
+    back: function() {
+      this.$router.go(-1);
+    }
+  }
 };
 </script>
 

@@ -4,17 +4,17 @@
           <h2>
             <a href="#!/movie/213190/comment/">
               <span class="i_tnext"></span>
-              <b>精选影评（{{hotLongComment.totalCount}}）</b>
+              <b>精选影评（{{count}}）</b>
             </a>
           </h2>
           <dl>
             <dt>
-              <a href="#!/review/detail/8190665/">{{hotLongComment.comments[0].title}}</a>
+              <a href="#!/review/detail/8190665/">{{data.title}}</a>
             </dt>
             <dd>
               <p>
                 <a href="#!/review/detail/8190665/">
-                  {{hotLongComment.comments[0].content}}
+                  {{data.content}}
                 </a>
               </p>
             </dd>
@@ -23,18 +23,18 @@
             <li class="table">
               <div class="cine_user">
                 <img
-                  :src="hotLongComment.comments[0].headurl"
+                  :src="data.headurl"
                   class="m_img"
                 >
               </div>
               <div class="cine_txt td">
                 <p>
-                  <b>{{hotLongComment.comments[0].nickname}}</b>
+                  <b>{{data.nickname}}</b>
                 </p>
                 <p>
-                  <b>{{hotLongComment.comments[0].modifyTime}} 看过 - 评分</b>
+                  <b>{{data.modifyTime}} 看过 - 评分</b>
                   <em class="m_score">
-                    <i>{{hotLongComment.comments[0].rating}}</i>
+                    <i>{{data.rating}}</i>
                   </em>
                 </p>
               </div>
@@ -48,9 +48,6 @@
 import Vuex from 'vuex';
 export default {
     name: 'LongComment',
-    created() {
-      this.actionsHotLongComment();
-    },
     methods: {
       ...Vuex.mapActions({
         actionsHotLongComment: 'indexMovie/actionsHotLongComment',
@@ -58,8 +55,9 @@ export default {
     },
     computed: {
       ...Vuex.mapState({
-        hotLongComment: state => state.indexMovie.hotLongComment
-      })
+        count: state => state.indexMovie.hotLongComment.count,
+        data: state => state.indexMovie.hotLongComment.comment
+      }),
     }
 }
 </script>

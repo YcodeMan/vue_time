@@ -191,7 +191,7 @@ $rem0_4: 0.4rem;
       }
       p {
         width: 1.6rem;
-        height: 0.77rem;
+        height: 0.74rem;
         overflow: hidden;
         padding-top: 0.1rem;
         text-align: center;

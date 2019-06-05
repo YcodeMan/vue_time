@@ -1,7 +1,6 @@
 export default {
-
-    path: 'movieComing',
+    path: '/movieComing',
     name: 'movieComing',
-    component: () => import('@components/movieComing/MovieComing')
+    component: () => import('@views/movieComing/movieComing')
 
 }

@@ -128,7 +128,7 @@ export default {
         margin-left: 0.2rem;
     }
     .movieType i{
-        margin: 0.15rem 0;
+        margin: 0.15rem 0.05rem;
         border: 1px solid #6d8297;
         padding: 0.05rem 0.05rem;
         color: #6d8297;

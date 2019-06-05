@@ -1,29 +1,27 @@
 <template>
     <div class="address">
         <div class="prompt">
-            <p>以下影院均非时光网自营</p>
+            <p>{{noticeNotOwn}}</p>
         </div>
         <ul>
-            <li class="addressInfo">
+            <li class="addressInfo" v-for="(item, index) in cinemaList" :key='index'>
                 <dl>
                     <dt class="cinemaName">
                         <p>
-                            <span>金逸国际影城荟聚店</span>
+                            <span>{{item.cinameName }}</span>
                         </p>
-                        <p class="price">
-                            <b>24</b>
+                        <p class="price" v-if="item.minPrice > 0 ? true : false " > 
+                            <b>{{item.minPrice | ClearZero}}</b>
                             <i>元起</i>
                         </p>
                     </dt>
                     <dd class="cinemaAddress">
-                        <p>北京市大兴区欣宁大街15号7-03-122-C1</p>
+                        <p>{{item.address}}</p>
                     </dd>
                     <dd class="movieType">
-                        <i>3D</i>
-                        <i>IMAX</i>
-                        <i>VIP</i>
-                        <i>4K</i>
-                        <i>情侣座</i>
+                        <i :class="key | addFeature(data) | isEmpty" v-for='(data,key, i) in item.feature' :key='i'>
+                            {{key | addFeature(data)}}
+                        </i>
                     </dd>
                 </dl>
             </li>
@@ -33,8 +31,55 @@
 
 
 <script>
-export default {
-    name: "address"
+import Vuex from 'vuex'
+import {formatDate} from '@filters/formatDate'
+import {movieFeature} from '@filters/movieFeature'
+export default { 
+    name: "Address",
+    data() {
+        return {
+            _this: this
+        }
+    },
+    created () {
+        let time = formatDate(new Date(), 'yyyyMMddhhmmss'),
+            id = this.city.id
+        this.getCinemaAddress({id, time})
+    },
+    computed: {
+        ...Vuex.mapState({
+            city: state => state.city.city,
+            noticeNotOwn: state => state.city.noticeNotOwn,
+            cinemaList: state => state.city.cinemaList
+        })
+    },
+    methods: {
+         ...Vuex.mapActions({
+            getCinemaAddress: 'city/actionsGetCinemaAddress'
+        }),
+    },
+    filters: {
+        // 去掉零
+        ClearZero(price) {
+            var reg = /0+$/
+           if (reg.test(price)) {
+            price = price + '';
+            price =  price.slice(0, reg.exec(price).index)
+            return price
+           }
+        },
+        addFeature(key, val) {
+         let name =   movieFeature({[key]: val})
+          return name;
+        },
+        isEmpty(val) {
+            if (val === undefined) {
+                return 'hide'
+            }
+            return;
+        }
+    }
+
 }
 </script>
 
@@ -88,6 +133,9 @@ export default {
         padding: 0.05rem 0.05rem;
         color: #6d8297;
         display: inline-block;
+    }
+    .movieType .hide{
+        display: none;
     }
     .price b{
         font-size: 0.35rem;

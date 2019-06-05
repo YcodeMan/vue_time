@@ -4,5 +4,11 @@ export default {
     warmCity: JSON.parse(window.sessionStorage.getItem('warmCity')) || [],
     cityList: JSON.parse(window.localStorage.getItem('cityList')) 
             ? JSON.parse(window.localStorage.getItem('cityList')).cityListObject : [],
-    getLocation:JSON.parse(window.sessionStorage.getItem("getLocation")) || {},
+    
+
+    // 电影院地址(先存储在seessionStorage中)
+    cinemaList: JSON.parse(window.sessionStorage.getItem('cinemaList')) || [],
+
+    // 电影院说明信息
+    noticeNotOwn: JSON.parse(window.sessionStorage.getItem('noticeNotOwn')) || ''
 }

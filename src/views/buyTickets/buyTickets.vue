@@ -1,13 +1,15 @@
 <template>
     <div>
-        Buy Tickets
+        <Address/>
     </div>
 </template>
 
 <script>
+import Address from '@components/buyTicket/address'
 export default {
     name: 'BuyTickets',
     components: {
+        Address
     }
 
 }

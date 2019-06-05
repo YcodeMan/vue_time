@@ -78,9 +78,13 @@ export default {
         
     },
 
-    //城市定位
-    mutationsCityGetLocation(state,params){
-        state.getLocation = params;
-        window.sessionStorage.setItem("getLocation",JSON.stringify(params))
-    },
+    // 电影院地址
+    mutationsGetCinemaAddress(state, data) {
+        state.cinemaList = data.cinemaList
+        state.noticeNotOwn = data.noticeNotOwn
+
+        window.sessionStorage.setItem('cinemaList', JSON.stringify(data.cinemaList))
+        window.sessionStorage.setItem('noticeNotOwn', JSON.stringify(data.noticeNotOwn))
+        
+    }
 }

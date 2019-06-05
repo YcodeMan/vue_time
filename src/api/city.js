@@ -1,10 +1,10 @@
 import {http} from '@utils/http'
 
 // 电影院地址
-export const cinemaList = () => http(
+export const cinemaList = ({id, time}) => http(
     'get',
     '/api/proxy/ticket/onlineCinemasByCity.api',
-    {locationId: 366, _: 1559292704394}
+    {locationId: id, _: time}
 )
 
 // 购票地址

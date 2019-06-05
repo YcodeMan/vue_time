@@ -57,7 +57,6 @@ export default {
   },
   methods: {
       getMovieDetails(id) {
-
         this.router.push({
           name: 'movieDetails',
           path: '/movieDetails',

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="BuyTickets">
         <Address/>
     </div>
 </template>
@@ -7,6 +7,7 @@
 <script>
 import Address from '@components/buyTicket/address'
 export default {
+
     name: 'BuyTickets',
     components: {
         Address
@@ -15,7 +16,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>
 

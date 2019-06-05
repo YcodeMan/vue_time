@@ -53,14 +53,6 @@
 import Vuex from "vuex";
 export default {
   name: "ShortComment",
-  created(){
-    this.actionsShortComment();
-  },
-  methods: {
-    ...Vuex.mapActions({
-      actionsShortComment: "indexMovie/actionsShortComment"
-    })
-  },
   computed: {
     ...Vuex.mapState({
       shortComment: state => state.indexMovie.shortComment

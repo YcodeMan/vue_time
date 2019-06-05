@@ -4,37 +4,37 @@
       <!--头部-->
       <DetailsHeader/>
       <!--影片上映信息-->
-      <!-- <DetailsInfo/> -->
+      <DetailsInfo/>
       <aside class="cin_line">
         <p></p>
         <p></p>
       </aside>
       <!--剧情-->
-      <!-- <Plot/> -->
+      <Plot/>
       <aside class="cin_line">
         <p></p>
         <p></p>
       </aside>
       <!--演员-->
-      <!-- <CastList/> -->
+      <CastList/>
       <aside class="cin_line">
         <p></p>
         <p></p>
       </aside>
       <!--图片-->
-      <!-- <Pic/> -->
+      <Pic/>
       <aside class="cin_line">
         <p></p>
         <p></p>
       </aside>
       <!--长影评-->
-      <!-- <LongComment/> -->
+      <LongComment/>
       <aside class="cin_line">
         <p></p>
         <p></p>
       </aside>
       <!--短影评-->
-      <!-- <ShortComment/> -->
+      <ShortComment/>
     </div>
   </div>
 
@@ -43,13 +43,14 @@
 
 <script>
 import Vuex from "vuex";
-import DetailsHeader from "./detailsHeader";
-import DetailsInfo from "./detailsInfo";
-import Plot from "./plot";
-import CastList from "./castList";
-import Pic from "./pic";
-import LongComment from "./longComment";
-import ShortComment from "./shortComment";
+import DetailsHeader from "@components/movieDetails/detailsHeader";
+import DetailsInfo from "@components/movieDetails/detailsInfo";
+import Plot from "@components/movieDetails/plot";
+import CastList from "@components/movieDetails/castList";
+import Pic from "@components/movieDetails/pic";
+import LongComment from "@components/movieDetails/longComment";
+import ShortComment from "@components/movieDetails/shortComment";
+import { formatDate } from '@filters/formatDate';
 export default {
   name: "MovieDetails",
   components: {
@@ -63,26 +64,28 @@ export default {
   },
   methods: {
     ...Vuex.mapActions({
-      actionsDetails: "indexMovie/actionsDetails"
+      actionsDetails: "indexMovie/actionsDetails",
+      actionsHotLongComment: 'indexMovie/actionsHotLongComment',
+      actionsShortComment: "indexMovie/actionsShortComment"
     })
   },
   computed: {
     ...Vuex.mapState({
       cityId: state => state.city.cityId,
-      id: state => state.city.cityId,
+      id: state => state.indexMovie.movieId,
     })
   },
-  created() {
-    //var params = this.$route.params;
-    // if (Object.keys(params).length === 0) {
-    //   var date = formatDate(new Date() , 'yyyyMMddhhmmss');
-    //   params = {
-    //     movieId: 213190, 
-    //     locationId: 366, 
-    //     t: date
-    //   }
-    // }
-    this.actionsDetails(this.$route.params);
+  activated() {
+    let {movieId,locationId,t} = this.$route.params;
+    if (!movieId) {
+      let date = formatDate(new Date() , 'yyyyMMddhhmmss');
+      movieId=this.id; 
+      locationId = this.cityId;
+      t = date;
+    }
+    this.actionsDetails({movieId,locationId,t});
+    this.actionsHotLongComment({movieId,t});
+    this.actionsShortComment({movieId,t});
   },
 };
 </script>

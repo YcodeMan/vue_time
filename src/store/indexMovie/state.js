@@ -14,11 +14,15 @@ export default {
 
     // 影片详情页
     detail: {},
-    movieId:"",
+    movieId: JSON.parse(window.sessionStorage.getItem('movieId')) || 0,
     // 影片短评论
     shortComment: {},
     // 影片热门长评论
-    hotLongComment: {},
+    hotLongComment: {
+        count: 0,
+        comment: {}
+    },
+    longComment:[],
     // 热点评论详情单挑数据id
     HotPointId: JSON.parse(window.localStorage.getItem('HotPointId')) || 0
 }

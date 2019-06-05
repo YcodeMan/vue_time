@@ -12,7 +12,6 @@
                 <a href="#!/movie/213190/posters_and_images/">
                   <img
                     class="m_img"
-                    alt="哥斯拉2：怪兽之王剧照"
                     :src="item"
                   >
                 </a>

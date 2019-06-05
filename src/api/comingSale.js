@@ -28,23 +28,23 @@ export const detail = ({movieId, locationId, t})=>http(
 )
 
 // 影片短评论
-export const shortComment = ()=>http(
+export const shortComment = ({movieId,t})=>http(
     'get',
     'Service/callback.mi/Showtime/MovieComments.api',
     {
-        movieId: 213190,
+        movieId,
         pageIndex:1,
-        t:2019611910179287
+        t
     }
 )
 
 // 影片热门长评论
-export const hotLongComment = ()=>http(
+export const hotLongComment = ({movieId,t})=>http(
     'get',
     'Service/callback.mi/Movie/HotLongComments.api',
     {
-        movieId: 213190,
+        movieId,
         pageIndex:1,
-        t:2019611910179287
+        t
     }
 )

@@ -1,9 +1,10 @@
 <template>
     <div class="cityHeader">
         <div class="choosecity">
-            <a href="#">&lt;</a>
+            <v-touch tag='a' v-on:tap='goBack' href="javascript:void(0);">&lt;</v-touch>
             <div class="city">
-                <h2>选择城市</h2>
+                <h2 v-if="title">{{title}}</h2>
+                <slot></slot>
             </div>
         </div>
         <div class="serch">
@@ -18,7 +19,13 @@
 
 <script>
 export default {
-    name: "CityHeader"
+    name: "subHeader",
+    props:['title'],
+    methods: {
+        goBack: function() {
+            this.$router.go(-1);
+        }
+    }
 }
 </script>
 

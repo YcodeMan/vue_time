@@ -30,23 +30,19 @@ export default {
     //请求电影详情
     async actionsDetails({ commit }, param) {
         let data = await detail(param);
-        let params = {
-            data,
-            movieId : param.movieId
-        }
-        console.log(data)
-        commit("mutationsDetails", params);
+        let movieId=param.movieId;
+        commit("mutationsDetails", {data,movieId});
     },
 
     //请求电影短评论
-    async actionsShortComment({ commit }) {
-        let data = await shortComment();
+    async actionsShortComment({ commit }, param) {
+        let data = await shortComment(param);
         commit("mutationsShortComment", data);
     },
 
     //请求电影热门长评论
-    async actionsHotLongComment({ commit }) {
-        let data = await hotLongComment();
+    async actionsHotLongComment({ commit }, param) {
+        let data = await hotLongComment(param);
         commit("mutationsHotLongComment", data);
     },
 }

@@ -13,21 +13,13 @@
       </div>
     </section>
     <article class="cinemabox">
-      <div
-        class="cinema_pic"
-        data-trailer="{url:http://vfx.mtime.cn/Video/2019/05/23/mp4/190523092929709049.mp4&quot;,&quot;title&quot;: &quot;哥斯拉2：怪兽之王 终极预告&quot;,&quot;videoId&quot;: &quot;74838&quot;}"
-        data-trailer-num="3"
-        id="trailerButton"
-      >
+      <div class="cinema_pic">
         <a :title="data.titleCn">
-          <img
-            src="//imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F05%2F23%2F095633.44711442_1280X720X2.jpg&amp;width=210&amp;height=316&amp;clipType=4"
-            class="m_img"
-          >
+          <img :src="data.image" class="m_img"/>
           <div class="moviever">
-            <i></i>
-            <i class="i_cine_14"></i>
-            <i class="i_cine_15"></i>
+            <i v-show="data.is3D" class="i_cine_05"></i>
+            <i v-show="data.isDMAX" class="i_cine_14"></i>
+            <i v-show="data.isIMAX3D" class="i_cine_15"></i>
           </div>
         </a>
       </div>
@@ -176,7 +168,6 @@ export default {
 }
 
 .cinemabox .cinema_pic {
-  overflow: hidden;
   background: #fff;
   margin-right: 0.24rem;
   padding: 0.048rem;
@@ -187,6 +178,7 @@ export default {
     width: 2.52rem;
     height: 3.744rem;
     display: block;
+    position: relative;
   }
 }
 .moviever {
@@ -200,15 +192,30 @@ export default {
     height: 0.528rem;
   }
 }
-
+.moviever .i_cine_05 {
+    background: url(//static1.mtime.cn/html5/20190531185056/images/2014/iv_cine_05.png) no-repeat center center;
+    background-size: cover;
+}
+.moviever .i_cine_14 {
+    height: .672rem;
+    background: url(//static1.mtime.cn/html5/20190531185056/images/2014/iv_cine_14.png) no-repeat center center;
+    background-size: cover;
+}
+.moviever .i_cine_15 {
+    height: .744rem;
+    background: url(//static1.mtime.cn/html5/20190531185056/images/2014/iv_cine_15.png) no-repeat center center;
+    background-size: cover;
+}
 .cinema_txt {
   min-height: 3.912rem;
+  flex: 1;
   header {
     color: #fff;
     margin-top: 0.12rem;
     position: relative;
     margin-bottom: 0.384rem;
     margin-right: 0.36rem;
+    width: 3.924rem;
     h2 {
       font-size: 0.432rem;
       line-height: 1.4;

@@ -19,8 +19,8 @@
             </li>
         </ul>
         <div class="notStand" v-show='showOrHide'>
-           <CityChoose />
-           <CityPlaceList/>
+                <CityChoose />
+                <CityPlaceList/>
         </div>
     </div>
 </template>

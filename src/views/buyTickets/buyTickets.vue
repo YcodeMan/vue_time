@@ -1,25 +1,24 @@
 <template>
-    <div class="BuyTickets">
-        <CityNav />
-        <Address/>
-    </div>
+  <div class="BuyTickets">
+    <keep-alive>
+      <CityNav/>
+    </keep-alive>
+    <Address/>
+  </div>
 </template>
 
 <script>
-import CityNav from '@components/buyTicket/cityNav'
-import Address from '@components/buyTicket/address'
+import CityNav from "@components/buyTicket/cityNav";
+import Address from "@components/buyTicket/address";
 export default {
-
-    name: 'BuyTickets',
-    components: {
-        Address,
-        CityNav
-    }
-
-}
+  name: "BuyTickets",
+  components: {
+    Address,
+    CityNav
+  }
+};
 </script>
 
 <style scoped>
-
 </style>
 

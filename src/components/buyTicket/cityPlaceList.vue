@@ -8,7 +8,7 @@
       <v-touch
         tag="dd"
         @tap="getHamlet(index)"
-        v-for="(item, index) in districts"
+        v-for="(item, index) in dataMsg"
         :key="index"
         :class="{checked:index == nowIndex}"
       >
@@ -25,10 +25,10 @@
       <v-touch
         tag="dd"
         :class="villageShowOrHide ? 'show': 'hide'"
-        v-for="(item, index) in Hamlet"
+        v-for="(item, index) in dataHamlet"
         :key="index"
       >
-        <span>{{item.name}}</span>
+        <span>{{item.name ?item.name : item.stName}}</span>
         <i>{{item.cinemaCount}}</i>
       </v-touch>
     </dl>
@@ -41,21 +41,51 @@ export default {
   name: "cityPlaceList",
   data() {
     return {
-      // 改变切换状态颜色
-      AreaShowOrHide: true,
+      // 改变全部的状态颜色
       totalShowOrHide: true,
+      AreaShowOrHide: true,
 
-      //
+      //改变标签的颜色
       villageShowOrHide: false,
 
-      nowIndex: -1
+      nowIndex: -1,
+      isChangeSubways : false,
+      // dataMsg存储切换城市和地铁的数据
+      dataMsg: [],
+
+      // 切换区域信息
+      dataHamlet: []
     };
+  },
+  created() {
+      this.dataMsg = this.districts
+      this.dataHamlet = this.Hamlet
+      this.$Observer.$on('changeState', (val) => {
+          // 隐藏二级菜单
+          this.villageShowOrHide = false
+          // 使子菜单的颜色变暗
+          this.nowIndex = -1
+        
+        // 使菜单变亮
+        this.totalShowOrHide  = true
+          // 切换城市和地铁区域
+          this.isChangeSubways = !val
+          if (this.isChangeSubways) {
+             this.dataMsg  = this.subways
+              this.dataHamlet = this.subwaysLine
+          } else {
+              this.dataMsg = this.districts
+          }
+      }) 
   },
   computed: {
     ...Vuex.mapState({
       districts: state => state.shopStore.districts,
       subways: state => state.shopStore.subways,
-      Hamlet: state => state.shopStore.Hamlet
+      // 地方对应的区域
+      Hamlet: state => state.shopStore.Hamlet,
+      // 地铁线对应的地方
+      subwaysLine: state => state.shopStore.subwaysLine
     })
   },
   methods: {
@@ -64,11 +94,21 @@ export default {
     }),
     // 点击切换区域
     getHamlet(index) {
+        // 切换样式
       this.villageShowOrHide = true;
       this.totalShowOrHide = false;
       this.nowIndex = index;
-      this.changeHamlet(index);
+
+      // 通过index切换数据
+      this.changeHamlet({isCity: !this.isChangeSubways, index});
       this.getAllNum(index);
+
+      // 通过isCity来切换地铁和城市
+      if (!this.isChangeSubways) {
+          this.dataHamlet = this.Hamlet
+      } else {
+          this.dataHamlet = this.subwaysLine
+      }
     },
     // 点击全部切换颜色
     changeTotal() {
@@ -80,13 +120,13 @@ export default {
     getAllNum(index) {
       if (index < 0 ) {
         let num = 0;
-        for (var i = 0, len = this.districts.length; i < len; i++) {
-          num += this.districts[i].cinemaCount;
+        for (var i = 0, len = this.dataMsg.length; i < len; i++) {
+          num += this.dataMsg[i].cinemaCount;
         }
         return num;
       } else {
           this.nowIndex = index
-        return this.districts[index].cinemaIds.length;
+        return this.dataMsg[index].cinemaIds.length;
       }
     }
   }

@@ -6,6 +6,8 @@ import VueTouch from 'vue-touch'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
+
+
 // 使用vue-touch
 Vue.use(VueTouch, {name: 'v-touch'})
 

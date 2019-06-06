@@ -6,6 +6,10 @@ import VueTouch from 'vue-touch'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 
+// 绑定发布订阅模式
+import Observer from './utils/observer'
+
+Vue.prototype.$Observer = Observer
 // 使用vue-touch
 Vue.use(VueTouch, {name: 'v-touch'})
 

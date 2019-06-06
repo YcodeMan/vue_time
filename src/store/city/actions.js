@@ -16,7 +16,6 @@ export default {
        // city : {id , time}
         let data = await cinemaList(param)
        commit('mutationsGetCinemaAddress', data.data)
-       console.log(data.data)
     }
    
 }

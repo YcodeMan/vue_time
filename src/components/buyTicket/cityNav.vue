@@ -8,9 +8,9 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <v-touch :class='showOrHide ? "active" : "passive"' tag='a' @tap="toggleCity()">
                     <b><span>全城</span><i></i></b>
-                </a>
+                </v-touch>
             </li>
             <li>
                 <a href="#">
@@ -18,12 +18,50 @@
                 </a>
             </li>
         </ul>
+        <div class="notStand" v-show='showOrHide'>
+           <CityChoose />
+           <CityPlaceList/>
+        </div>
     </div>
 </template>
 
 <script>
+import Vuex from 'vuex'
+import CityChoose from '@components/buyTicket/cityChoose'
+import CityPlaceList from "@components/buyTicket/cityPlaceList";
 export default {
-    name: 'citynav'
+    name: 'citynav',
+    data() {
+        return {
+            showOrHide: false,
+            cityId:  -1
+        }
+    },
+    methods: {
+        toggleCity() {
+            this.showOrHide = !this.showOrHide
+            if (this.cityId !== this.city.id) {
+                 this.getShopStore({
+                    id:this.city.id, 
+                    time: new Date().getTime()
+                })
+                this.cityId = this.city.id
+            }
+        },
+        ...Vuex.mapActions({
+            getShopStore: 'shopStore/actionsGetShopStore'
+        })
+    },
+    computed: {
+        ...Vuex.mapState({
+            city: state => state.city.city,
+            id: state => state.city.city.id
+        })
+    },
+    components: {
+        CityChoose,
+        CityPlaceList
+    }
 }
 </script>
 
@@ -67,7 +105,16 @@ export default {
         background-color: pink;
         display: inline-block;
         margin-left: 5px;
-        background: url(./images/down.png) no-repeat;
+        background: url(/images/down.png) no-repeat;
         background-size: cover;
+    }
+    .city-nav .notStand{
+        position: absolute;
+        width: 100%;
+        background-color: #fff;
+        border-bottom: 2px solid #ccc;
+    }
+    .city-nav .active{
+        color: #f97d3f;
     }
 </style>

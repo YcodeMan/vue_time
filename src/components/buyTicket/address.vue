@@ -89,7 +89,7 @@ export default {
         width: 100%;
     }
     .address ul li{
-        border-bottom: 1px solid lightgray;
+        border-bottom: 1px solid #4a4040;
     }
     .address i{
         font-style: normal;

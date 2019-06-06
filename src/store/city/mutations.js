@@ -11,10 +11,9 @@ export default {
             // 默认地址为北京
         state.city = {id: '290', name: '北京'}
         window.localStorage.setItem('city', JSON.stringify(state.city))
-
             //热门城市截取所有城市前八条数据
         state.warmCity = state.cityList.slice(0, 8)
-        window.sessionStorage.setItem('warmCity', JSON.stringify(state.warmCity))
+        window.localStorage.setItem('warmCity', JSON.stringify(state.warmCity))
     },
 
     mutationsCityList(state,params){

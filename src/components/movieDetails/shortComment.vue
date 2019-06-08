@@ -18,10 +18,10 @@
           <dl class="td">
             <dt>
               <time>
-                <b>{{item.lcd}}</b>
-                <b>- 评</b>
-                <em class="m_score">
-                  <i>{{item.cr}}</i>
+                <b>{{item.cd | formatTime}}</b>
+                <b v-if="item.cr!=-1">- 评</b>
+                <em class="m_score" v-if="item.cr!=-1">
+                  <i>{{item.cr | formatRating}}</i>
                 </em>
               </time>
               <b>{{item.ca}}</b>
@@ -166,20 +166,5 @@ export default {
   background-size: cover;
   position: relative;
   top: -0.048rem;
-}
-
-.m_score {
-  background: #659d0e;
-  width: 0.48rem;
-  height: 0.432rem;
-  color: #fff;
-  border-radius: 0;
-  display: inline-block;
-  overflow: hidden;
-  line-height: 0.432rem;
-  text-align: center;
-  margin-left: 0.12rem;
-  font-size: 0.264rem;
-  vertical-align: middle;
 }
 </style>

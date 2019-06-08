@@ -97,7 +97,7 @@ table td {
     word-wrap: break-word
 }
 
-.fix:after {
+/* .fix:after {
     content: ".";
     height: 0;
     visibility: hidden;
@@ -111,7 +111,7 @@ table td {
 
 .fix {
     display: block
-}
+} */
 
 article,
 aside,
@@ -159,10 +159,6 @@ body {
     overflow-x: hidden
 }
 
-.img_box {
-    border: 1px solid #ddd
-}
-
 body {
     user-select: none
 }
@@ -193,6 +189,8 @@ menu {
     -webkit-touch-callout: none;
     -webkit-user-select: none
 }
+
+/* 向右更多箭头 */
 .i_tnext {
     width: 0.336rem;
     height: 0.192rem;
@@ -205,20 +203,43 @@ menu {
     text-indent: -999px;
     transform: rotate(-90deg);
     display: block;
-    background: #fff
-      url(//static1.mtime.cn/html5/20190531185056/images/2014/i-tmore.png)
-      no-repeat center center;
+    background: #fff url(//static1.mtime.cn/html5/20190531185056/images/2014/i-tmore.png) no-repeat center center;
     background-size: auto 0.192rem;
-  }
-  .table {
+}
+
+/* 弹性盒基础样式 */
+.table {
     width: 100%;
     display: flex;
-  }
-  .td{
-      flex: 1;
-  }
-  .m_img {
+}
+.td {
+    flex: 1;
+}
+
+/* 图片基础样式 */
+.m_img {
     width: 100%;
     height: auto;
     display: block;
+}
+
+/* 图片边框 */
+.img_box {
+    border: 1px solid #ddd;
+}
+
+/* 评分基础样式 */
+.m_score {
+    background: #659d0e;
+  width: 0.48rem;
+  height: 0.432rem;
+  color: #fff;
+  border-radius: 0;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 0.432rem;
+  text-align: center;
+  margin-left: 0.12rem;
+  font-size: 0.264rem;
+  vertical-align: middle;
 }

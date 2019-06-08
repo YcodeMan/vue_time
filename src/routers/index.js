@@ -10,6 +10,10 @@ import mine from './mine'
 import cityList from './cityList'
 import hotMovie from './hotMovie'
 import movieComing from './movieComing'
+import allCastList from './allCastList'
+import allLongComment from './allLongComment'
+import allPic from './allPic'
+import review from './review'
 
 Vue.use(Router)
 
@@ -28,6 +32,10 @@ export default new Router({
     mine,
     cityList,
     hotMovie,
-    movieComing
+    movieComing,
+    allCastList,
+    allPic,
+    allLongComment,
+    review
   ]
 })

@@ -89,9 +89,6 @@ export default {
   width: 100%;
   display: flex;
 }
-.td {
-  flex: 1;
-}
 .logo_mtime {
   width: 1.344rem;
   height: 0.432rem;

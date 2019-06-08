@@ -14,6 +14,7 @@ export default {
 
     // 影片详情页
     detail: {},
+    titleCn: JSON.parse(window.sessionStorage.getItem('titleCn')) || '',
     movieId: JSON.parse(window.sessionStorage.getItem('movieId')) || 0,
     // 影片短评论
     shortComment: {},
@@ -22,7 +23,17 @@ export default {
         count: 0,
         comment: {}
     },
-    longComment:[],
+    //影片所有长评论
+    longComment: JSON.parse(window.sessionStorage.getItem('longComment')) || [],
+    //影片工作人员表
+    allCastList: [],
+    //影片全部照片
+    allPic: [],
+
+    //长评论全文数据
+    review: {},
+
+
     // 热点评论详情单挑数据id
     HotPointId: JSON.parse(window.localStorage.getItem('HotPointId')) || 0
 }

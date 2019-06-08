@@ -2,7 +2,7 @@
     <div>
         <article id="commentRegion" class="cinema_reviews">
           <h2>
-            <a href="#!/movie/213190/comment/">
+            <a href="#/movieDetails/allLongComment">
               <span class="i_tnext"></span>
               <b>精选影评（{{count}}）</b>
             </a>
@@ -14,7 +14,7 @@
             <dd>
               <p>
                 <a href="#!/review/detail/8190665/">
-                  {{data.content}}
+                  {{data.content | maxTxtCount(55)}}
                 </a>
               </p>
             </dd>
@@ -32,9 +32,9 @@
                   <b>{{data.nickname}}</b>
                 </p>
                 <p>
-                  <b>{{data.modifyTime}} 看过 - 评分</b>
+                  <b>{{data.modifyTime | formatTime('000')}} 看过 - 评分</b>
                   <em class="m_score">
-                    <i>{{data.rating}}</i>
+                    <i>{{data.rating | formatRating}}</i>
                   </em>
                 </p>
               </div>
@@ -111,19 +111,5 @@ export default {
     display: inline-block;
     vertical-align: middle;
     }
-}
-.m_score {
-    background: #659d0e;
-    width: .48rem;
-    height: .432rem;
-    color: #fff;
-    border-radius: 0;
-    display: inline-block;
-    overflow: hidden;
-    line-height: .432rem;
-    text-align: center;
-    margin-left: .12rem;
-    font-size: .264rem;
-    vertical-align: middle;
 }
 </style>

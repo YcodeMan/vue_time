@@ -210,6 +210,3 @@ ul {
   overflow: hidden;
 }
 </style>
-
-
-

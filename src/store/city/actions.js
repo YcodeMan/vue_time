@@ -15,6 +15,7 @@ export default {
     async  actionsGetCinemaAddress({commit}, param) {
        // city : {id , time}
         let data = await cinemaList(param)
+        console.log('data', data.data)
        commit('mutationsGetCinemaAddress', data.data)
     }
    

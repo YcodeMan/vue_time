@@ -81,7 +81,9 @@ export default {
     mutationsGetCinemaAddress(state, data) {
         state.cinemaList = data.cinemaList
         state.noticeNotOwn = data.noticeNotOwn
-
+        
+        //默认获取全部数据
+        state.cinemaListAboutCity = data.cinemaList
         window.sessionStorage.setItem('cinemaList', JSON.stringify(data.cinemaList))
         window.sessionStorage.setItem('noticeNotOwn', JSON.stringify(data.noticeNotOwn))
         

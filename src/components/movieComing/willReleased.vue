@@ -8,7 +8,7 @@
       </h2>
       <div class="commovielist" v-for="(val,index) in movieComingMonth" :key='index'>
         <time class="month">
-          <span>{{val.Month}}</span>
+          <span>{{val.Month}}月</span>
         </time>
         <ul>
           <li v-for="(item, index) in val.Movies" :key='index'>

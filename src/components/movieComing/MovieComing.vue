@@ -7,44 +7,50 @@
         <span>（{{attention.length}}部）</span>
       </h2>
       <div class="filmscroll">
-        <ul class="table_transition4" style="width: 3300px; left: 5px;">
-          <li v-for='(item,index) in attention' :key='index'>
-            <time>
-              <span>{{item.rMonth}}月{{item.rDay}}日</span>
-            </time>
-            <div class="table_movielist">
-              <div class="upmovie_pic">
-                <a href="#">
-                  <img class="m_img img_box" :src="item.image">
-                </a>
-              </div>
-              <div class="upmovie_txt_td">
-                <dl>
-                  <dt>
-                    <a href="#">
-                      <b>{{item.title}}</b>
-                    </a>
-                  </dt>
-                  <dd>
-                    <p>
-                      <b class="color">{{item.wantedCount}}</b> 人想看 - {{item.type}}
-                    </p>
-                    <p class="txt_elli">导演：{{item.director}}</p>
-                    <p class="txt_elli">演员：{{item.actor1}},{{item.actor2}}</p>
-                  </dd>
-                </dl>
-                <div class="btns">
-                  <a href="#" :class="item.isTicket | getMovieState('isTicket') | isEmpty ">
-                    <span>{{item.isTicket | getMovieState('isTicket') }}</span>
-                  </a>
-                  <a href="#" :class="item.isVideo | getMovieState('isVideo') | isEmpty">
-                    <span>{{item.isVideo | getMovieState('isVideo') }}</span>
-                  </a>
+        <div class="swiper-content">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" v-for='(item,index) in attention' :key='index'>
+                  <div class="table_transition4">
+                    <div class="info" >
+                      <time>
+                        <span>{{item.rMonth}}月{{item.rDay}}日</span>
+                      </time>
+                      <div class="table_movielist">
+                        <div class="upmovie_pic">
+                          <a href="#">
+                            <img class="m_img img_box" :src="item.image">
+                          </a>
+                        </div>
+                        <div class="upmovie_txt_td">
+                          <dl>
+                            <dt>
+                              <a href="#">
+                                <b>{{item.title}}</b>
+                              </a>
+                            </dt>
+                            <dd>
+                              <p>
+                                <b class="color">{{item.wantedCount}}</b> 人想看 - {{item.type}}
+                              </p>
+                              <p class="txt_elli">导演：{{item.director}}</p>
+                              <p class="txt_elli">演员：{{item.actor1}},{{item.actor2}}</p>
+                            </dd>
+                          </dl>
+                          <div class="btns">
+                            <a href="#" :class="item.isTicket | getMovieState('isTicket') | isEmpty ">
+                              <span>{{item.isTicket | getMovieState('isTicket') }}</span>
+                            </a>
+                            <a href="#" :class="item.isVideo | getMovieState('isVideo') | isEmpty">
+                              <span>{{item.isVideo | getMovieState('isVideo') }}</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
             </div>
-          </li>
-        </ul>
+        </div>
       </div>
     </div>
   
@@ -54,16 +60,29 @@
 <script>
 import Vuex from 'vuex'
 import {movieState} from '@filters/movieState'
+import Swiper from "swiper"
+import "swiper/dist/css/swiper.min.css";
+import { constants } from 'crypto';
+
 export default {
   name: "MovieComing",
+    mounted(){
+        var mySwiper = new Swiper('.swiper-content', {
+            autoplay: false,//可选选项，自动滑动
+            loop: false,
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        })
+    },
   created() {
       this.getMovieComing()
   },
   computed: {
     ...Vuex.mapState({
       attention: state => state.movieComing.attention,
-      
-    }) 
+    })
+  
   },
   methods: {
     ...Vuex.mapActions({
@@ -115,8 +134,16 @@ export default {
 .upmovie_txt_td {
   margin-left: 0.2rem;
 }
-.table_transition4 li time span {
-  margin-left: 0.2rem;
+.table_transition4{
+  width: 7500px;
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+}
+.table_transition4 .info time span {
+  display: inline-block;
+  font-size: 0.3rem;
+  margin: 0.15rem 0.2rem;
 }
 .upmovie_txt_td dl dt a {
   margin-left: 0.2rem;
@@ -153,11 +180,7 @@ export default {
   border: 1px solid #659c0d;
   color: #659c0d;
 }
-.table_transition4 li time span {
-  display: inline-block;
-  font-size: 0.3rem;
-  margin: 0.15rem 0.2rem;
-}
+
 .commovie ul {
   border-top: 1px solid lightgrey;
 }

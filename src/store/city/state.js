@@ -10,5 +10,8 @@ export default {
     cinemaList: JSON.parse(window.sessionStorage.getItem('cinemaList')) || [],
 
     // 电影院说明信息
-    noticeNotOwn: JSON.parse(window.sessionStorage.getItem('noticeNotOwn')) || ''
+    noticeNotOwn: JSON.parse(window.sessionStorage.getItem('noticeNotOwn')) || '',
+
+    // 地址对应的电影院
+    cinemaListAboutCity: JSON.parse(window.sessionStorage.getItem('cinemaList')) || []
 }

@@ -86,5 +86,25 @@ export default {
         window.sessionStorage.setItem('cinemaList', JSON.stringify(data.cinemaList))
         window.sessionStorage.setItem('noticeNotOwn', JSON.stringify(data.noticeNotOwn))
         
+    },
+
+
+    // 切换电影院地址
+    mutationsChangeCinemaList(state, param) {
+        let list =  state.cinemaList,
+            data = []
+        if (param.length > 0) {
+            for (let i = 0, len = param.length; i < len; i++) {
+                for (let j = 0, cinemaLen = list.length; j < cinemaLen; j++) {
+                    
+                    if(list[j].cinemaId == param[i]) {
+                        data.push(list[j])
+                        break
+                    }
+                }
+            }
+        }
+        // 根据地址改变影院地址
+        state.cinemaListAboutCity = data
     }
 }

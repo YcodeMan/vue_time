@@ -6,7 +6,8 @@ import {
 import {
     MoviehotShow,
     hotPoints,
-    hotPointsDetails
+    hotPointsDetails,
+    searchVideo
 } from '@api/indexMovie'
 
 
@@ -45,4 +46,11 @@ export default {
         let data = await hotLongComment(param);
         commit("mutationsHotLongComment", data);
     },
+
+    //请求电影id对应的预告片
+    async actionsGetMovieVideo({commit}, param) {
+       let data = await searchVideo(param)
+       commit('mutationsGetMovieVideo', data.videoList)
+       
+    }
 }

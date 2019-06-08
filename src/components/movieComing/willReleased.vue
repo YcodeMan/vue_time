@@ -42,9 +42,9 @@
                     <a href="#" :class="item.isTicket | getMovieState('isTicket') | isEmpty ">
                       <span>{{item.isTicket | getMovieState('isTicket') }}</span>
                     </a>
-                    <a href="#" :class="item.isVideo | getMovieState('isVideo') | isEmpty">
+                    <v-touch tag='a' @tap='ToMovieVideo(item.id)' href="#" :class="item.isVideo | getMovieState('isVideo') | isEmpty">
                       <span>{{item.isVideo | getMovieState('isVideo') }}</span>
-                    </a>
+                    </v-touch>
                   </div>
                 </div>
               </div>
@@ -67,6 +67,16 @@ export default {
       movieComingMonth: state => state.movieComing.movieComingMonth
 
     })
+  },
+  methods: {
+    ToMovieVideo(id) {
+      
+      this.$router.push({
+        name: 'movieVideo',
+        path: 'movieVideo',
+        params: {id}
+      })
+    }
   },
   filters: {
        //获取影片的状态

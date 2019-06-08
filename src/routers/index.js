@@ -10,6 +10,7 @@ import mine from './mine'
 import cityList from './cityList'
 import hotMovie from './hotMovie'
 import movieComing from './movieComing'
+import movieVideo from './movieVideo'
 
 Vue.use(Router)
 
@@ -28,6 +29,7 @@ export default new Router({
     mine,
     cityList,
     hotMovie,
-    movieComing
+    movieComing,
+    movieVideo
   ]
 })

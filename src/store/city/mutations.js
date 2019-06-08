@@ -11,10 +11,9 @@ export default {
             // 默认地址为北京
         state.city = {id: '290', name: '北京'}
         window.localStorage.setItem('city', JSON.stringify(state.city))
-
             //热门城市截取所有城市前八条数据
         state.warmCity = state.cityList.slice(0, 8)
-        window.sessionStorage.setItem('warmCity', JSON.stringify(state.warmCity))
+        window.localStorage.setItem('warmCity', JSON.stringify(state.warmCity))
     },
 
     mutationsCityList(state,params){
@@ -78,9 +77,33 @@ export default {
         
     },
 
-    //城市定位
-    mutationsCityGetLocation(state,params){
-        state.getLocation = params;
-        window.sessionStorage.setItem("getLocation",JSON.stringify(params))
+    // 电影院地址
+    mutationsGetCinemaAddress(state, data) {
+        state.cinemaList = data.cinemaList
+        state.noticeNotOwn = data.noticeNotOwn
+
+        window.sessionStorage.setItem('cinemaList', JSON.stringify(data.cinemaList))
+        window.sessionStorage.setItem('noticeNotOwn', JSON.stringify(data.noticeNotOwn))
+        
     },
+
+
+    // 切换电影院地址
+    mutationsChangeCinemaList(state, param) {
+        let list =  state.cinemaList,
+            data = []
+        if (param.length > 0) {
+            for (let i = 0, len = param.length; i < len; i++) {
+                for (let j = 0, cinemaLen = list.length; j < cinemaLen; j++) {
+                    
+                    if(list[j].cinemaId == param[i]) {
+                        data.push(list[j])
+                        break
+                    }
+                }
+            }
+        }
+        // 根据地址改变影院地址
+        state.cinemaListAboutCity = data
+    }
 }

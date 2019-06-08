@@ -62,5 +62,3 @@ export const review = ({reviewId,t})=>http(
         t
     }
 )
-
-//https://m.mtime.cn/Service/callback.mi/Review/Detail.api?reviewId=8191845&t=20196814593336001

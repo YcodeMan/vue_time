@@ -66,6 +66,12 @@ export default {
     mutationsSetHotId(state, param) { 
         state.HotPointId = param
         window.localStorage.setItem('HotPointId', JSON.stringify(param))
-    }
+    },
 
+    // 设置电影id的预告片
+    mutationsGetMovieVideo(state, param) {
+        state.VideoList = param
+        window.sessionStorage.setItem('videoList', JSON.stringify(state.VideoList))
+
+    }
 }

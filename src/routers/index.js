@@ -14,6 +14,7 @@ import allCastList from './allCastList'
 import allLongComment from './allLongComment'
 import allPic from './allPic'
 import review from './review'
+import movieVideo from './movieVideo'
 
 Vue.use(Router)
 
@@ -36,6 +37,7 @@ export default new Router({
     allCastList,
     allPic,
     allLongComment,
-    review
+    review,
+    movieVideo
   ]
 })

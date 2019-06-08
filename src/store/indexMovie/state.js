@@ -35,5 +35,8 @@ export default {
 
 
     // 热点评论详情单挑数据id
-    HotPointId: JSON.parse(window.localStorage.getItem('HotPointId')) || 0
+    HotPointId: JSON.parse(window.localStorage.getItem('HotPointId')) || 0,
+
+    // 电影id对应的预告片
+    VideoList: JSON.parse(window.sessionStorage.getItem('videoList')) || []
 }

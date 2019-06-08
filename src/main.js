@@ -8,6 +8,12 @@ import 'mint-ui/lib/style.css'
 import VueLazyload from 'vue-lazyload'
 import * as filters from './filters'
 
+// 绑定发布订阅模式
+import Observer from './utils/observer'
+
+Vue.prototype.$Observer = Observer
+
+
 // 使用vue-touch
 Vue.use(VueTouch, {name: 'v-touch'})
 

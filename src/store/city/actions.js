@@ -10,5 +10,12 @@ export default {
         let data = await hotCity(param)
         commit('mutationssHotCity', data.p)
     },
+
+    // 请求电影院地址
+    async  actionsGetCinemaAddress({commit}, param) {
+       // city : {id , time}
+        let data = await cinemaList(param)
+       commit('mutationsGetCinemaAddress', data.data)
+    }
    
 }

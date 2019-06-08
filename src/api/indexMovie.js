@@ -29,3 +29,11 @@ export const areaFirstImg = () => http(
     '/Service/callback.mi/PageSubArea/MallAreaFirstH5Url.api',
     {t: 201953116354372770}
 )
+
+// 查找电影id对应的预告片
+export const searchVideo = ({id, pageIndex, time}) => http(
+    'get',
+   '/Service/callback.mi/Movie/Video.api',
+   {movieId:id, pageIndex, t:time }
+
+)

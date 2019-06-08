@@ -1,22 +1,22 @@
 <template>
-    <div class="BuyTickets">
-     
-        Buy Tickets
-    </div>
+  <div class="BuyTickets">
+    <CityNav/>
+    <Address/>
+  </div>
 </template>
 
 <script>
-
+import CityNav from "@components/buyTicket/cityNav";
+import Address from "@components/buyTicket/address";
 export default {
-
-    name: 'BuyTickets',
-    components: {
-    }
-
-}
+  name: "BuyTickets",
+  components: {
+    Address,
+    CityNav
+  }
+};
 </script>
-
+  
 <style scoped>
-
 </style>
 

@@ -93,7 +93,6 @@ export default {
     }),
 
     ToMovieVideo(id) {
-      console.log(id)
       this.$router.push({
         name: "movieVideo",
         path: "movieVideo",

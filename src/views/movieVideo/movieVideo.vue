@@ -1,6 +1,8 @@
 <template>
     <div class="movieVideo">
+         <subHeader :title="title"/>
         <keep-alive>
+           
             <HeraldMovie/>
         </keep-alive>
         
@@ -9,10 +11,21 @@
 
 <script>
 import HeraldMovie from '@components/heraldMovie/heraldMovie'
+import subHeader from '@common/subHeader/subHeader'
 export default {
     name: 'movieVideo',
+    data () {
+        return {
+            title: ''
+        }
+    },
+    created() {
+       let {title} = this.$route.params
+      this.title = title
+    },
     components: {
-        HeraldMovie
+        HeraldMovie,
+        subHeader
     }
 }
 </script>

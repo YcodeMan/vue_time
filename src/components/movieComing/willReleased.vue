@@ -42,7 +42,7 @@
                     <a href="#" :class="item.isTicket | getMovieState('isTicket') | isEmpty ">
                       <span>{{item.isTicket | getMovieState('isTicket') }}</span>
                     </a>
-                    <v-touch tag='a' @tap='ToMovieVideo(item.id)' href="#" :class="item.isVideo | getMovieState('isVideo') | isEmpty">
+                    <v-touch tag='a' @tap='ToMovieVideo({id:item.id, title:item.title})' href="#" :class="item.isVideo | getMovieState('isVideo') | isEmpty">
                       <span>{{item.isVideo | getMovieState('isVideo') }}</span>
                     </v-touch>
                   </div>
@@ -69,12 +69,12 @@ export default {
     })
   },
   methods: {
-    ToMovieVideo(id) {
+    ToMovieVideo({id,title}) {
       
       this.$router.push({
         name: 'movieVideo',
         path: 'movieVideo',
-        params: {id}
+        params: {id, title}
       })
     }
   },

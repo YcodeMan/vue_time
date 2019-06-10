@@ -1,0 +1,245 @@
+@charset "utf-8";
+
+html {
+    overflow-y: scroll;
+    background: #fff;
+    -webkit-text-size-adjust: none;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+ul,
+ol,
+dl,
+dd,
+p,
+input,
+form,
+textarea,
+pre,
+fieldset {
+    margin: 0;
+    font-size: 100%;
+    line-height: 1
+}
+
+ul,
+ol,
+form,
+textarea,
+fieldset,
+legend {
+    padding: 0
+}
+
+ul,
+ol {
+    list-style: none
+}
+
+img {
+    -ms-interpolation-mode: bicubic;
+    height: auto
+}
+
+embed,
+object,
+iframe {
+    width: 100%;
+    height: auto
+}
+
+textarea {
+    overflow-y: auto;
+    resize: none
+}
+
+:focus {
+    outline: 0 none
+}
+
+fieldset,
+select,
+input,
+textarea,
+img {
+    border: 0
+}
+
+a {
+    color: #333
+}
+
+a,
+a:hover {
+    text-decoration: none;
+    appearance: none
+}
+
+video,
+canvas {
+    max-width: 100%;
+    position: relative;
+    z-index: 50
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    empty-cells: show
+}
+
+table td {
+    overflow: hidden;
+    word-wrap: break-word
+}
+
+/* .fix:after {
+    content: ".";
+    height: 0;
+    visibility: hidden;
+    display: block;
+    clear: both
+}
+
+.fix {
+    display: inline-block
+}
+
+.fix {
+    display: block
+} */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section,
+menu,
+div {
+    display: block
+}
+
+em,
+i {
+    font-style: normal
+}
+
+input[type="search"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+    -webkit-appearance: none
+}
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: pre-line;
+    word-wrap: break-word
+}
+
+body {
+    font-size: 100%;
+    font-family: "helvetica neue", "微软雅黑";
+    color: #333
+}
+
+html,
+body {
+    overflow-x: hidden
+}
+
+body {
+    user-select: none
+}
+
+a,
+div,
+p,
+dl,
+h1,
+h2,
+h3,
+dt,
+dd,
+i,
+em,
+b,
+strong,
+section,
+header,
+article,
+footer,
+nav,
+ul,
+li,
+span,
+menu {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none
+}
+
+/* 向右更多箭头 */
+.i_tnext {
+    width: 0.336rem;
+    height: 0.192rem;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -0.096rem;
+    overflow: hidden;
+    line-height: 2.64rem;
+    text-indent: -999px;
+    transform: rotate(-90deg);
+    display: block;
+    background: #fff url(//static1.mtime.cn/html5/20190531185056/images/2014/i-tmore.png) no-repeat center center;
+    background-size: auto 0.192rem;
+}
+
+/* 弹性盒基础样式 */
+.table {
+    width: 100%;
+    display: flex;
+}
+.td {
+    flex: 1;
+}
+
+/* 图片基础样式 */
+.m_img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 图片边框 */
+.img_box {
+    border: 1px solid #ddd;
+}
+
+/* 评分基础样式 */
+.m_score {
+    background: #659d0e;
+  width: 0.48rem;
+  height: 0.432rem;
+  color: #fff;
+  border-radius: 0;
+  display: inline-block;
+  overflow: hidden;
+  line-height: 0.432rem;
+  text-align: center;
+  margin-left: 0.12rem;
+  font-size: 0.264rem;
+  vertical-align: middle;
+}

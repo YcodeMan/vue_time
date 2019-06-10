@@ -1,8 +1,9 @@
 <template>
     <div class="movieVideo">
-         <subHeader :title="title"/>
         <keep-alive>
-           
+            <subHeader :title="title"/>
+        </keep-alive>
+        <keep-alive>
             <HeraldMovie/>
         </keep-alive>
         
@@ -19,7 +20,7 @@ export default {
             title: ''
         }
     },
-    created() {
+    activated () {
        let {title} = this.$route.params
       this.title = title
     },

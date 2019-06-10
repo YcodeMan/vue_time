@@ -21,12 +21,9 @@ export default {
             showOrHide: true
         }
     },
-    created () {
-        console.log(this.$Observer)
-    },
     methods: {
         changeSubway() {
-            console.log(this)
+           
             this.showOrHide = !this.showOrHide
             this.$Observer.$emit('changeState', this.showOrHide)
         }

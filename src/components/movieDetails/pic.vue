@@ -1,7 +1,7 @@
 <template>
     <article class="cin_scrollpic">
           <h2>
-            <a href="#!/movie/213190/posters_and_images/">
+            <a href="#/movieDetails/allPic">
               <span class="i_tnext"></span>
               <b>{{imageCount}}张图片</b>
             </a>
@@ -9,7 +9,7 @@
           <div class="showpic">
             <ul class="table">
               <li v-for="item in images" :key="item.id">
-                <a href="#!/movie/213190/posters_and_images/">
+                <a href="javascript:void(0);">
                   <img
                     class="m_img"
                     :src="item"

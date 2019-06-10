@@ -46,9 +46,6 @@ import Vuex from 'vuex'
 import {formatDate} from '@filters/formatDate'
 export default {
   name: "hotMovieContent",
-  created () {
-    console.log(this.movieList)
-  },
   computed: {
       ...Vuex.mapState({
         movieList: state => state.indexMovie.movieListMsg,

@@ -28,7 +28,9 @@
         v-for="(item, index) in dataHamlet"
         :key="index"
       >
-        <span>{{item.name ?item.name : item.stName}}</span>
+        <v-touch tag='span' 
+        :class="{checked:index == subwayIndex}"
+          @tap='getArea(index)'>{{item.name ?item.name : item.stName}}</v-touch>
         <i>{{item.cinemaCount}}</i>
       </v-touch>
     </dl>
@@ -49,6 +51,7 @@ export default {
       villageShowOrHide: false,
 
       nowIndex: -1,
+      subwayIndex: -1,
       isChangeSubways : false,
       // dataMsg存储切换城市和地铁的数据
       dataMsg: [],
@@ -98,6 +101,7 @@ export default {
       this.villageShowOrHide = true;
       this.totalShowOrHide = false;
       this.nowIndex = index;
+      this.subwayIndex = -1
 
       // 通过index切换数据
       this.changeHamlet({isCity: !this.isChangeSubways, index});
@@ -118,6 +122,7 @@ export default {
     },
     // 切换数目
     getAllNum(index) {
+      
       if (index < 0 ) {
         let num = 0;
         for (var i = 0, len = this.dataMsg.length; i < len; i++) {
@@ -128,8 +133,34 @@ export default {
           this.nowIndex = index
         return this.dataMsg[index].cinemaIds.length;
       }
+    },
+    // 获得区域地址
+    getArea (index) {
+      this.subwayIndex = index
+      let name = '',
+          cinemaIdList = []
+      // 通过true,false来切换地址名
+      if (this.isChangeSubways) {
+        name = this.dataHamlet[index].stName
+      } else {
+        name = this.dataHamlet[index].name
+      }
+      cinemaIdList = this.dataHamlet[index].cinemaIds
+      this.$Observer.$emit('changeName', {name, cinemaIdList}) 
     }
-  }
+  },
+  watch: {
+    districts: function(newVal, oldVal) {
+      if (newVal !== oldVal) {
+        if (this.isChangeSubways) {
+             this.dataMsg  = this.subways
+              this.dataHamlet = this.subwaysLine
+          } else {
+              this.dataMsg = this.districts
+          }
+      }
+    }
+  },
 };
 </script>
 
@@ -160,7 +191,7 @@ export default {
 }
 .placeList dl dd,
 .placeList dl dt {
-  margin: 0.4rem 0;
+  padding: 0.2rem 0;
 }
 .right dd,
 .right dt {

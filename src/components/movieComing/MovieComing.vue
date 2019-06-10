@@ -8,97 +8,108 @@
       </h2>
       <div class="filmscroll">
         <div class="swiper-content">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for='(item,index) in attention' :key='index'>
-                  <div class="table_transition4">
-                    <div class="info" >
-                      <time>
-                        <span>{{item.rMonth}}月{{item.rDay}}日</span>
-                      </time>
-                      <div class="table_movielist">
-                        <div class="upmovie_pic">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide" v-for="(item,index) in attention" :key="index">
+              <div class="table_transition4">
+                <div class="info">
+                  <time>
+                    <span>{{item.rMonth}}月{{item.rDay}}日</span>
+                  </time>
+                  <div class="table_movielist">
+                    <div class="upmovie_pic">
+                      <a href="#">
+                        <img class="m_img img_box" :src="item.image">
+                      </a>
+                    </div>
+                    <div class="upmovie_txt_td">
+                      <dl>
+                        <dt>
                           <a href="#">
-                            <img class="m_img img_box" :src="item.image">
+                            <b>{{item.title}}</b>
                           </a>
-                        </div>
-                        <div class="upmovie_txt_td">
-                          <dl>
-                            <dt>
-                              <a href="#">
-                                <b>{{item.title}}</b>
-                              </a>
-                            </dt>
-                            <dd>
-                              <p>
-                                <b class="color">{{item.wantedCount}}</b> 人想看 - {{item.type}}
-                              </p>
-                              <p class="txt_elli">导演：{{item.director}}</p>
-                              <p class="txt_elli">演员：{{item.actor1}},{{item.actor2}}</p>
-                            </dd>
-                          </dl>
-                          <div class="btns">
-                            <a href="#" :class="item.isTicket | getMovieState('isTicket') | isEmpty ">
-                              <span>{{item.isTicket | getMovieState('isTicket') }}</span>
-                            </a>
-                            <a href="#" :class="item.isVideo | getMovieState('isVideo') | isEmpty">
-                              <span>{{item.isVideo | getMovieState('isVideo') }}</span>
-                            </a>
-                          </div>
-                        </div>
+                        </dt>
+                        <dd>
+                          <p>
+                            <b class="color">{{item.wantedCount}}</b>
+                            人想看 - {{item.type}}
+                          </p>
+                          <p class="txt_elli">导演：{{item.director}}</p>
+                          <p class="txt_elli">演员：{{item.actor1}},{{item.actor2}}</p>
+                        </dd>
+                      </dl>
+                      <div class="btns">
+                        <a href="#" :class="item.isTicket | getMovieState('isTicket') | isEmpty ">
+                          <span>{{item.isTicket | getMovieState('isTicket') }}</span>
+                        </a>
+                        <v-touch
+                          tag="a"
+                          @tap="ToMovieVideo(item.id)"
+                          :class="item.isVideo | getMovieState('isVideo') | isEmpty"
+                        >
+                          <span>{{item.isVideo | getMovieState('isVideo') }}</span>
+                        </v-touch>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
       </div>
     </div>
-  
   </div>
 </template>
 
 <script>
-import Vuex from 'vuex'
-import {movieState} from '@filters/movieState'
-import Swiper from "swiper"
+import Vuex from "vuex";
+import { movieState } from "@filters/movieState";
+import Swiper from "swiper";
 import "swiper/dist/css/swiper.min.css";
-import { constants } from 'crypto';
+import { constants } from "crypto";
 
 export default {
   name: "MovieComing",
-    mounted(){
-        var mySwiper = new Swiper('.swiper-content', {
-            autoplay: false,//可选选项，自动滑动
-            loop: false,
-            pagination: {
-                el: '.swiper-pagination',
-            },
-        })
-    },
+  mounted() {
+    var mySwiper = new Swiper(".swiper-content", {
+      autoplay: false, //可选选项，自动滑动
+      loop: false,
+      pagination: {
+        el: ".swiper-pagination"
+      }
+    });
+  },
   created() {
-      this.getMovieComing()
+    this.getMovieComing();
   },
   computed: {
     ...Vuex.mapState({
-      attention: state => state.movieComing.attention,
+      attention: state => state.movieComing.attention
     })
-  
   },
   methods: {
     ...Vuex.mapActions({
-      getMovieComing: 'movieComing/actionsGetMovieComing'
-    })
+      getMovieComing: "movieComing/actionsGetMovieComing"
+    }),
+
+    ToMovieVideo(id) {
+      this.$router.push({
+        name: "movieVideo",
+        path: "movieVideo",
+        params: { id }
+      })
+    }
   },
   filters: {
     //获取影片的状态
     getMovieState(val, key) {
-      return movieState({[key]: val})
+      return movieState({ [key]: val });
     },
     isEmpty(val) {
-      if(val === undefined) {
-        return 'hide';
+      if (val === undefined) {
+        return "hide";
       }
-       return '';
+      return "";
     }
   }
 };
@@ -134,7 +145,7 @@ export default {
 .upmovie_txt_td {
   margin-left: 0.2rem;
 }
-.table_transition4{
+.table_transition4 {
   width: 7500px;
   display: flex;
   flex-wrap: nowrap;
@@ -168,7 +179,7 @@ export default {
   margin: 0.15rem 0.2rem;
   font-size: 0.3rem;
 }
-.btns .hide{
+.btns .hide {
   display: none;
 }
 .btns a:nth-child(1) {

@@ -2,7 +2,7 @@
   <div>
     <article class="credits">
       <h2>
-        <a href="#!/movie/213190/fullcredits/">
+        <a href="#/movieDetails/allCastList">
           <span class="i_tnext"></span>
           <b>{{personCount}}位演职员</b>
         </a>

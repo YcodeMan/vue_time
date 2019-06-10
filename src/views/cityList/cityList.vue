@@ -1,6 +1,7 @@
 <template>
     <div class="CityList">
         <CityHeader :title="title"/>
+        <CitySearch/>
         <City/>
     </div>
 </template>
@@ -8,6 +9,7 @@
 
 <script>
     import CityHeader from "@common/subHeader/subHeader"
+    import CitySearch from "@components/city/citySearch"
     import City from "@components/city/city"
     export default {
         name: "CityList",
@@ -18,6 +20,7 @@
         },
         components: {
             CityHeader,
+            CitySearch,
             City
         }
     }

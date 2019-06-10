@@ -8,7 +8,7 @@
       </h2>
       <div class="commovielist" v-for="(val,index) in movieComingMonth" :key='index'>
         <time class="month">
-          <span>{{val.Month}}</span>
+          <span>{{val.Month}}月</span>
         </time>
         <ul>
           <li v-for="(item, index) in val.Movies" :key='index'>
@@ -42,9 +42,9 @@
                     <a href="#" :class="item.isTicket | getMovieState('isTicket') | isEmpty ">
                       <span>{{item.isTicket | getMovieState('isTicket') }}</span>
                     </a>
-                    <a href="#" :class="item.isVideo | getMovieState('isVideo') | isEmpty">
+                    <v-touch tag='a' @tap='ToMovieVideo({id:item.id, title:item.title})' href="#" :class="item.isVideo | getMovieState('isVideo') | isEmpty">
                       <span>{{item.isVideo | getMovieState('isVideo') }}</span>
-                    </a>
+                    </v-touch>
                   </div>
                 </div>
               </div>
@@ -67,6 +67,16 @@ export default {
       movieComingMonth: state => state.movieComing.movieComingMonth
 
     })
+  },
+  methods: {
+    ToMovieVideo({id,title}) {
+      
+      this.$router.push({
+        name: 'movieVideo',
+        path: 'movieVideo',
+        params: {id, title}
+      })
+    }
   },
   filters: {
        //获取影片的状态
@@ -98,8 +108,8 @@ export default {
 }
 .table_movielist .day span {
   display: inline-block;
-  width: 0.48rem;
-  margin: 0.3rem 0.2rem;
+  width: 0.52rem;
+  margin: 0.3rem 0.18rem;
 }
 
 .commovie {

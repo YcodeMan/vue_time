@@ -1,8 +1,6 @@
 <template>
   <div class="BuyTickets">
-    <keep-alive>
-      <CityNav/>
-    </keep-alive>
+    <CityNav/>
     <Address/>
   </div>
 </template>
@@ -18,7 +16,7 @@ export default {
   }
 };
 </script>
-
+  
 <style scoped>
 </style>
 

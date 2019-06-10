@@ -35,6 +35,7 @@
       </aside>
       <!--短影评-->
       <ShortComment/>
+      <Footer/>
     </div>
   </div>
 
@@ -50,6 +51,7 @@ import CastList from "@components/movieDetails/castList";
 import Pic from "@components/movieDetails/pic";
 import LongComment from "@components/movieDetails/longComment";
 import ShortComment from "@components/movieDetails/shortComment";
+import Footer from "@common/footer/footer";
 import { formatDate } from '@filters/formatDate';
 export default {
   name: "MovieDetails",
@@ -60,7 +62,8 @@ export default {
     CastList,
     Pic,
     LongComment,
-    ShortComment
+    ShortComment,
+    Footer
   },
   methods: {
     ...Vuex.mapActions({

@@ -26,7 +26,7 @@ export default {
             actionsCastList: 'indexMovie/actionsCastList' 
         })
     },
-    created(){
+    activated(){
         if (this.id) {
         let date = formatDate(new Date() , 'yyyyMMddhhmmss');
         this.actionsCastList({movieId:this.id,t:date});

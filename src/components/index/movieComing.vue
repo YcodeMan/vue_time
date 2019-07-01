@@ -174,6 +174,7 @@ $rem0_4: 0.4rem;
         margin: 0 0.14rem;
         img {
           width: 1.5rem;
+          height: 100%;
         }
         em {
           position: absolute;

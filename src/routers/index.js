@@ -18,7 +18,7 @@ import movieVideo from './movieVideo'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -41,3 +41,15 @@ export default new Router({
     movieVideo
   ]
 })
+
+router.beforeEach((to, from, next) => {   
+  // chrome
+  document.body.scrollTop = 0
+  // // firefox
+  document.documentElement.scrollTop = 0
+  // // safari
+  window.pageYOffset = 0
+  next()
+})
+
+export default router;

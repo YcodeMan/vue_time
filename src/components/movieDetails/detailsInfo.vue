@@ -179,6 +179,9 @@ export default {
     height: 3.744rem;
     display: block;
     position: relative;
+    img{
+      height: 100%;
+    }
   }
 }
 .moviever {
